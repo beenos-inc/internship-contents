@@ -92,6 +92,7 @@ class TrainPlan
 {
     const STUDENT_DISCOUNT_COEFFICIENT = 0.2;
     private $price = 0;
+    private $student_discount_price = 0;
 
 
     function __construct($price)
@@ -102,9 +103,16 @@ class TrainPlan
     public function useStudentDiscount()
     {
         // PHASE.2 step.1 学割料金を求めるメソッドを完成させる
+        // 学割電車運賃を計算
+        $student_discount_price = floor($price * (1 - STUDENT_DISCOUNT_COEFFICIENT));
     }
 
-    // PHASE.2 step.1 往復代を求めるメソッドを追加する
+    public function getRoundTrip()
+    {
+      // PHASE.2 step.1 往復代を求めるメソッドを追加する
+      $round_trip=$student_discount_price*2;
+    }
+
 
 }
 
