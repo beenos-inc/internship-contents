@@ -5,15 +5,15 @@
  * 交通費を求める
  **/
 // 片道電車運賃
-const transport_expenses = 12500;   //PHASE.1 step.1 交通費の変数名を設定する
+const ONE_WAY_TRAIN_FARE = 12500;   //PHASE.1 step.1 交通費の変数名を設定する
 //// 学割係数
-const student_discount = 0.2;  //PHASE.1 step.1 学割の変数名を設定する
+const STUDENT_DISCOUNT_RATE = 0.2;  //PHASE.1 step.1 学割の変数名を設定する
 
 // 学割電車運賃を計算
-$student_single_fare = floor(transport_expenses * (1 - student_discount));  //PHASE.1 step.1 学割のきいた片道代の変数名を設定する
-$student_return_fare = $student_single_fare*2;  //PHASE.1 step.1 往復代を求める処理を記述し、往復台の変数名を設定する
+$student_single_fare = floor(ONE_WAY_TRAIN_FARE * (1 - STUDENT_DISCOUNT_RATE));  //PHASE.1 step.1 学割のきいた片道代の変数名を設定する
+$student_round_trip = $student_single_fare*2;  //PHASE.1 step.1 往復代を求める処理を記述し、往復台の変数名を設定する
 
-echo "交通費： " . $student_return_fare . "円";
+echo "交通費： " . $student_round_trip . "円";
 echo "\n";
 
 /*
