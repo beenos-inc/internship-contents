@@ -2,27 +2,14 @@
 /**
  * 交通費を求める
  **/
-// 学割のきいた電車賃の往復代を求める
-const TRAIN_PRICE = 12500;
-// 学割係数
-const STUDENT_DISCOUNT_COEFFICIENT = 0.2;
-
+$train_plan = new TrainPlan(12500);
 // 学割電車運賃を計算
-$student_discount_price = floor(TRAIN_PRICE * (1 - STUDENT_DISCOUNT_COEFFICIENT));
+$train_plan->useStudentDiscount();
 // 学割往復交通費
-$round_trip = $student_discount_price * 2;
+$round_trip = $train_plan->getRoundTripPrice();
 
 echo "交通費： " . $round_trip . "円";
 echo "\n";
-
-
-/**
- * 以下は交通費を求める際にクラスを使用したサンプルになります
- **/
-//$train_plan = new TrainPlan(12500);
-//$train_plan->useStudentDiscount();
-//$round_trip = $train_plan->getRoundTripPrice();
-
 
 
 /**
@@ -93,6 +80,7 @@ class TrainPlan
     const STUDENT_DISCOUNT_COEFFICIENT = 0.2;
     private $price = 0;
     private $student_discount_price = 0;
+    private $round_trip = 0;
 
 
     function __construct($price)
@@ -104,13 +92,14 @@ class TrainPlan
     {
         // PHASE.2 step.1 学割料金を求めるメソッドを完成させる
         // 学割電車運賃を計算
-        $student_discount_price = floor($price * (1 - STUDENT_DISCOUNT_COEFFICIENT));
+        $this->student_discount_price = floor($this->price * (1 - self::STUDENT_DISCOUNT_COEFFICIENT));
     }
 
-    public function getRoundTrip()
+    public function getRoundTripPrice()
     {
       // PHASE.2 step.1 往復代を求めるメソッドを追加する
-      $round_trip=$student_discount_price*2;
+      $this->round_trip = $this->student_discount_price * 2;
+      return $this->round_trip;
     }
 
 
