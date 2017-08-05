@@ -130,7 +130,7 @@ class TravelPrice
     public function getTotalPrice()
     {
         // PHASE.2 step.1 配列の合計金額を求める処理を完成させる
-        $this->total_price += array_sum($this->prices);
+        $this->total_price = array_sum($this->prices);
         return $this->total_price;
     }
 }
