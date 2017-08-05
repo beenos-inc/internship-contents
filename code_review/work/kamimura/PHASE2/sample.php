@@ -75,6 +75,29 @@ class HotelPlan
     }
 }
 
+class TravelPrice
+{
+    private $total_price = 0;
+    private $prices = [];
+
+    public function __construct($round_trip_price, $hotel_price)
+    {
+        // PHASE.2 step.1 配列"$prices"に引数の値ををそれぞれ格納する
+        $this->prices[0] = $round_trip_price;
+        $this->prices[1] = $hotel_price;
+    }
+
+    public function getTotalPrice()
+    {
+        // PHASE.2 step.1 配列の合計金額を求める処理を完成させる
+        foreach($this->prices as $value){
+            $this->total_price += $value;
+        }
+        return $this->total_price;
+    }
+}
+
+
 $train_price = new TrainPlan(12500);
 $train_price -> useStudentDiscount();
 
@@ -84,5 +107,7 @@ $hotel_price -> selectRank('silver');
 $hotel_price -> eatBreakfast();
 $hotel_price -> eatDinner();
 
+$total_price = new TravelPrice($train_price->getRoundTripPrice(), $hotel_price->getTotalPrice()); 
 echo "交通費: " . $train_price -> getRoundTripPrice() . "円\n";
 echo "ホテル代: " . $hotel_price -> getTotalPrice() . "円\n";
+echo "旅費合計： " . $total_price -> getTotalPrice() . "円\n";
