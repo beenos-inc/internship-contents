@@ -20,8 +20,7 @@ $hotel_plan->useSmokingRoom();
 $hotel_plan->selectHotelRank('silver');
 $hotel_price = $hotel_plan->getTotalPrice();
 
-echo "ホテル代： " . $hotel_price . "円";
-echo "\n";
+echo "ホテル代： " . $hotel_price . "円\n";
 
 
 /**
@@ -30,7 +29,7 @@ echo "\n";
 
 $travel_price = new TravelPrice($round_trip, $hotel_price);
 $total_price = $travel_price->getTotalPrice();
-echo "旅費合計： " . $total_price . "円";
+echo "旅費合計： " . $total_price . "円\n";
 
 
 class TrainPlan
@@ -131,7 +130,7 @@ class TravelPrice
     {
         // PHASE.2 step.1 配列の合計金額を求める処理を完成させる
         foreach ($this->prices as $price) {
-          $this->total_price += $price;
+            $this->total_price += $price;
         }
         return $this->total_price;
     }
