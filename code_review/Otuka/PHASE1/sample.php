@@ -5,15 +5,15 @@
  * 交通費を求める
  **/
 // 片道電車運賃
-const AAA = 12500;   //PHASE.1 step.1 交通費の変数名を設定する
+const ONE_WAY_FARE = 12500;   //PHASE.1 step.1 交通費の変数名を設定する
 //// 学割係数
-const BBB = 0.2;  //PHASE.1 step.1 学割の変数名を設定する
+const SCHOOL_DISCOUNT_RATE = 0.2;  //PHASE.1 step.1 学割の変数名を設定する
 
 // 学割電車運賃を計算
-$ccc = floor(AAA * (1 - BBB));  //PHASE.1 step.1 学割のきいた片道代の変数名を設定する
-$ddd = xxxxx;  //PHASE.1 step.1 往復代を求める処理を記述し、往復台の変数名を設定する
+$train_fare = floor(ONE_WAY_FARE * (1 - SCHOOL_DISCOUNT_RATE));  //PHASE.1 step.1 学割のきいた片道代の変数名を設定する
+$roundtrip_fare = $train_fare * 2;  //PHASE.1 step.1 往復代を求める処理を記述し、往復台の変数名を設定する
 
-echo "交通費： " . $ddd;
+echo "交通費： " . $roundtrip_fare . "円";
 echo "\n";
 
 /*
