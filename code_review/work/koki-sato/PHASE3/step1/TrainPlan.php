@@ -21,7 +21,7 @@ class TrainPlan
     // PHASE.3 step.1 グリーン車を利用するメソッドを追加する
     public function useGreenCar()
     {
-        $this->price = $this->price + self::GREEN_CAR_COST;
+        $this->price += self::GREEN_CAR_COST;
     }
 
     public function getRoundTripPrice()
