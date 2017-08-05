@@ -2,10 +2,9 @@
 
 class TrainPlan
 {
-    const STUDENT_DISCOUNT_COEFFICIENT = 0.2;
-    // PHASE.3 step.1 グリーン車代の定数を定義する
     const GREEN_CAR_COST = 5000;
     private $price = 0;
+    private $student_discount = 0;
 
 
     public function __construct($price)
@@ -13,12 +12,21 @@ class TrainPlan
         $this->price = $price;
     }
 
-    public function useStudentDiscount()
+    public function setStudentDiscountPercent($student_discount)
     {
-        $this->price = floor($this->price * (1 - self::STUDENT_DISCOUNT_COEFFICIENT));
+        if (is_int($student_discount) && $student_discount > 0 && $student_discount < 100) {
+            $this->student_discount = $student_discount;
+        } else {
+            echo "学割の値は0より大きく100未満の値を入れて下さい\n";
+            exit;
+        }
     }
 
-    // PHASE.3 step.1 グリーン車を利用するメソッドを追加する
+    public function useStudentDiscount()
+    {
+        $this->price = floor($this->price * (1 - $this->student_discount * 0.01));
+    }
+
     public function useGreenCar()
     {
         $this->price += self::GREEN_CAR_COST;

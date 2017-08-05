@@ -10,19 +10,19 @@ require_once 'TravelPrice.php';
 /**
  * 交通費を求める
  **/
-$airplane_plan = new AirplanePlan(30000);
-$airplane_plan->useEarlyReservationDiscount();
-$round_trip = $airplane_plan->getRoundTripPrice();
+$train_plan = new TrainPlan(12500);
+$train_plan->setStudentDiscountPercent(40);
+$train_plan->useStudentDiscount();
+$round_trip = $train_plan->getRoundTripPrice();
 
 echo "交通費： " . $round_trip . "円\n";
 
 /**
  * ホテル代を求める
  **/
-$hotel_plan = new HotelPlan(8000);
-$hotel_plan->eatBreakfast();
-$hotel_plan->eatDinner();
-$hotel_plan->selectHotelRank('gold');
+$hotel_plan = new HotelPlan(5000);
+$hotel_plan->useSmokerRoom();
+$hotel_plan->selectHotelRank('normal');
 $hotel_price = $hotel_plan->getTotalPrice();
 
 echo "ホテル代： " . $hotel_price . "円\n";
