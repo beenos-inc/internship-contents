@@ -4,6 +4,7 @@ class TrainPlan
 {
     const STUDENT_DISCOUNT_COEFFICIENT = 0.2;
     // PHASE.3 step.1 グリーン車代の定数を定義する
+    const GREEN_TRAIN_ADDITIONAL_PRICE = 5000;
     private $price = 0;
 
 
@@ -19,6 +20,10 @@ class TrainPlan
     }
 
     // PHASE.3 step.1 グリーン車を利用するメソッドを追加する
+    public function useGreenTrain()
+    {
+        $this-> price += self::GREEN_TRAIN_ADDITIONAL_PRICE;
+    }
 
     public function getRoundTripPrice()
     {
