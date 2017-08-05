@@ -10,9 +10,9 @@ require_once 'TravelPrice.php';
 /**
  * 交通費を求める
  **/
-$train_plan = new AirplanePlan(30000);
-$train_plan->useEarlyReservationDiscount();
-$round_trip = $train_plan->getRoundTripPrice();
+$airplane_plan = new AirplanePlan(30000);
+$airplane_plan->useEarlyReservationDiscount();
+$round_trip = $airplane_plan->getRoundTripPrice();
 
 echo "交通費： " . $round_trip . "円\n";
 
