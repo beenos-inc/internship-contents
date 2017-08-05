@@ -123,6 +123,18 @@ class HotelPlan
     ];
 
     private $price = 0;
+    // 朝食とるorとらない
+    private $has_breakfast = true;
+    // 夕食とるorとらない
+    private $has_dinner = false;
+    // 喫煙or禁煙
+    private $is_smoker = false;
+    // ホテルの部屋ランク
+    private $select_hotel_rank = 'gold';
+
+
+    // ホテル代初期値設定
+    $hotel_price = HOTEL_ROOM_PRICE;
 
 
     public function __construct($price)
@@ -131,12 +143,33 @@ class HotelPlan
     }
 
     // PHASE.2 step.1 喫煙可能部屋を使うメソッドを追加する
+    public function useSmokerRoom()
+    {
+      // 喫煙ルームオプション代加算
+      if ($is_smoker === true) {
+          $this->hotel_price += self::SMOKER_COST;
+      }
+    }
 
     // PHASE.2 step.1 ホテルのランクを選択するメソッドを追加する
 
     // PHASE.2 step.1 朝食を食べるメソッドを追加する
+    public function hasBreakfast()
+    {
+    // 朝食代加算
+      if ($has_breakfast === true) {
+          $hotel_price += MEAL_ADD_FEES['breakfast'];
+      }
+    }
 
     // PHASE.2 step.1 夕食を食べるメソッドを追加する
+    public function hasDinner()
+    {
+    // 朝食代加算
+      if ($has_dinner === true) {
+          $hotel_price += MEAL_ADD_FEES['dinner'];
+      }
+    }
 
     public function getTotalPrice()
     {
