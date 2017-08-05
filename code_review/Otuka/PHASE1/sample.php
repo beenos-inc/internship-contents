@@ -21,20 +21,20 @@ echo "\n";
  * ホテル代を求める
  **/
 // ホテル部屋代
-const ROOM_RENT = 5000;
+const HOTEL_ROOM_PRICE = 5000;
 // 朝食代
-const BREAKFAST_FEE = 500;
+const BREAKFAST_PRICE = 500;
 // 夕食代
-const DINNER_FEE = 800;
+const DINNER_PRICE = 800;
 
 // ホテル代を計算
-$hotel_fee = ROOM_RENT  + BREAKFAST_FEE + DINNER_FEE;
+$hotel_price = HOTEL_ROOM_PRICE + BREAKFAST_PRICE + DINNER_PRICE;
 
-echo "ホテル代： " . $hotel_fee . "円";
+echo "ホテル代： " . $hotel_price . "円";
 echo "\n";
 
 /**
  * 旅費合計を求める
  **/
-$travel_expenses_total = $roundtrip_fare + $hotel_fee;
+$travel_expenses_total = $roundtrip_fare + $hotel_price;
 echo "旅費合計： " . $travel_expenses_total . "円";
