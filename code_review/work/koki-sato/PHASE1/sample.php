@@ -20,25 +20,21 @@ echo "\n";
 /**
  * ホテル代を求める
  **/
-/*
 // ホテル部屋代
-const EEE = 5000;
+const ROOM_FEE = 5000;
 // 朝食代
-const FFF = 500;
+const BREAKFAST_FEE = 500;
 // 夕食代
-const GGG = 800;
+const DINNER_FEE = 800;
 
 // ホテル代を計算
-$hhh = xxxxx;
+$hotel_fee = ROOM_FEE + BREAKFAST_FEE + DINNER_FEE;
 
-echo "ホテル代： " . $hhh . "円";
+echo "ホテル代： " . $hotel_fee . "円";
 echo "\n";
-*/
 
 /**
  * 旅費合計を求める
  **/
-/*
-$iii = $ddd + $hhh;
-echo "旅費合計： " . $iii . "円";
-*/
+$travel_expenses = $school_discounted_rounnd_tip_train_free + $hotel_fee;
+echo "旅費合計： " . $travel_expenses . "円";
