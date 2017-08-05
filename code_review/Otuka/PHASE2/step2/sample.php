@@ -1,6 +1,7 @@
 <?php
 require('TrainPlan.php');
 require('HotelPlan.php');
+require('TravelPrice.php');
 // PHASE.2 step.2 3つのクラスをrequireする
 
 /**
@@ -31,3 +32,7 @@ echo "\n";
 /**
  * 旅費合計を求める
  **/
+ 
+ $travel_plan = new TravelPrice($round_trip_price, $hotel_price);
+$travel_price = $travel_plan->getTotalPrice();
+echo "旅費合計： " . $travel_price . "円";
