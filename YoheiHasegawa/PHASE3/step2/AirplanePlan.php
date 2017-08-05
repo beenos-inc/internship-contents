@@ -36,6 +36,6 @@ class AirplanePlan
               exit;
             }
 
-        $this->student_discount_coefficient = $student_discount;
+        $this->student_discount_coefficient = $student_discount / 100;
     }
 }
