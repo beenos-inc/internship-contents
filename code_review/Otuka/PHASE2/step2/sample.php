@@ -1,5 +1,5 @@
 <?php
-require('TrainPlan.php')
+require('TrainPlan.php');
 // PHASE.2 step.2 3つのクラスをrequireする
 
 /**
