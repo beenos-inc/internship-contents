@@ -14,8 +14,7 @@ class TrainPlan
 
     public function useStudentDiscount()
     {
-        $total_price = floor($this->price * (1 - self::STUDENT_DISCOUNT_COEFFICIENT));
-        return $total_price;
+        $this->price = floor($this->price * (1 - $this->student_discount_coefficient));
     }
 
     // PHASE.3 step.1 グリーン車を利用するメソッドを追加する
@@ -34,5 +33,11 @@ class TrainPlan
             }
 
         $this->student_discount_coefficient = $student_discount / 100;
+    }
+
+    public function getTotalPrice()
+    {
+        $total_price = $this->price;
+        return $total_price;
     }
 }
