@@ -5,9 +5,9 @@
  * 交通費を求める
  **/
 // 片道電車運賃
-const ONEWAY_TRAINFARE = 12500;   //PHASE.1 step.1 交通費の変数名を設定する
+const ONEWAY_TRAIN_FARE = 12500;   //PHASE.1 step.1 交通費の変数名を設定する
 //// 学割係数
-const STUDENT_DISCOUNT_PER = 0.2;  //PHASE.1 step.1 学割の変数名を設定する
+const STUDENT_DISCOUNT_RATE = 0.2;  //PHASE.1 step.1 学割の変数名を設定する
 
 // 学割電車運賃を計算
 $oneway_student_price = floor(ONEWAY_TRAINFARE * (1 - STUDENT_DISCOUNT_PER));  //PHASE.1 step.1 学割のきいた片道代の変数名を設定する
