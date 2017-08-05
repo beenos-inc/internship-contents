@@ -152,13 +152,16 @@ class HotelPlan
     }
 
     // PHASE.2 step.1 ホテルのランクを選択するメソッドを追加する
+    public function selectHotelRank()
+    {
+    }
 
     // PHASE.2 step.1 朝食を食べるメソッドを追加する
     public function hasBreakfast()
     {
     // 朝食代加算
       if ($has_breakfast === true) {
-          $hotel_price += MEAL_ADD_FEES['breakfast'];
+          $hotel_price += self::MEAL_ADD_FEES['breakfast'];
       }
     }
 
@@ -167,7 +170,7 @@ class HotelPlan
     {
     // 朝食代加算
       if ($has_dinner === true) {
-          $hotel_price += MEAL_ADD_FEES['dinner'];
+          $hotel_price += self::MEAL_ADD_FEES['dinner'];
       }
     }
 
