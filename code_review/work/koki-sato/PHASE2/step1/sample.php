@@ -27,7 +27,9 @@ echo "\n";
 /**
  * 旅費合計を求める
  **/
-$total_price = $round_trip + $hotel_price;
+
+$travel_price = new TravelPrice($round_trip, $hotel_price);
+$total_price = $travel_price->getTotalPrice();
 echo "旅費合計： " . $total_price . "円";
 
 
@@ -121,11 +123,16 @@ class TravelPrice
     public function __construct($round_trip_price, $hotel_price)
     {
         // PHASE.2 step.1 配列"$prices"に引数の値ををそれぞれ格納する
+        $this->prices['round_trip_price'] = $round_trip_price;
+        $this->prices['hotel_price'] = $hotel_price;
     }
 
     public function getTotalPrice()
     {
         // PHASE.2 step.1 配列の合計金額を求める処理を完成させる
+        foreach ($this->prices as $price) {
+          $this->total_price += $price;
+        }
         return $this->total_price;
     }
 }
