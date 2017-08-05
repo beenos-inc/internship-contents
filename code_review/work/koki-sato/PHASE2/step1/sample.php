@@ -12,33 +12,12 @@ echo "交通費： " . $round_trip . "円\n";
 /**
  * ホテル代を求める
  **/
-// ホテル部屋代
-const HOTEL_ROOM_PRICE = 5000;
-// 朝食とるorとらない
-$has_breakfast = true;
-// 夕食とるorとらない
-$has_dinner = true;
-// 喫煙or禁煙
-$is_smoker = true;
-// ホテルの部屋ランク
-$select_hotel_rank = 'silver';
 
-$hotel_plan = new HotelPlan(HOTEL_ROOM_PRICE);
-// 朝食代加算
-if ($has_breakfast === true) {
-    $hotel_plan->eatBreakfast();
-}
-// 夕食代加算
-if ($has_dinner === true) {
-    $hotel_plan->eatDinner();
-}
-// 喫煙ルームオプション代加算
-if ($is_smoker === true) {
-    $hotel_plan->useSmokingRoom();
-}
-// ホテルランク代加算
-$hotel_plan->selectHotelRank($select_hotel_rank);
-
+$hotel_plan = new HotelPlan(5000);
+$hotel_plan->eatBreakfast();
+$hotel_plan->eatDinner();
+$hotel_plan->useSmokingRoom();
+$hotel_plan->selectHotelRank('silver');
 $hotel_price = $hotel_plan->getTotalPrice();
 
 echo "ホテル代： " . $hotel_price . "円";
