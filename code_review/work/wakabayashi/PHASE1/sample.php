@@ -5,15 +5,15 @@
  * 交通費を求める
  **/
 // 片道電車運賃
-$one_way_train_price = 12500;   //PHASE.1 step.1 交通費の変数名を設定する
+$one_way_train_yen = 12500;   //PHASE.1 step.1 交通費の変数名を設定する
 //// 学割係数
-$student_discount = 0.2;  //PHASE.1 step.1 学割の変数名を設定する
+$student_discount_rate = 0.2;  //PHASE.1 step.1 学割の変数名を設定する
 
 // 学割電車運賃を計算
-$one_way_student_train_price = $one_way_train_price * (1 - $student_discount);  //PHASE.1 step.1 学割のきいた片道代の変数名を設定する
-$round_trip_student_train_price = $one_way_student_train_price * 2;  //PHASE.1 step.1 往復代を求める処理を記述し、往復台の変数名を設定する
+$one_way_student_train_yen = $one_way_train_yen * (1 - $student_discount_rate);  //PHASE.1 step.1 学割のきいた片道代の変数名を設定する
+$round_trip_student_train_yen = $one_way_student_train_yen * 2;  //PHASE.1 step.1 往復代を求める処理を記述し、往復台の変数名を設定する
 
-echo "交通費： " . $round_trip_student_train_price;
+echo "交通費： " . $round_trip_student_train_yen;
 echo "\n";
 
 /*
