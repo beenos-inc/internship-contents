@@ -46,7 +46,7 @@ class TrainPlan
     public function useStudentDiscount()
     {
         // PHASE.2 step.1 学割料金を求めるメソッドを完成させる
-        $this->price *= 1 - self::STUDENT_DISCOUNT_COEFFICIENT;
+        $this->price = floor($this->price * (1 - self::STUDENT_DISCOUNT_COEFFICIENT));
     }
 
     // PHASE.2 step.1 往復代を求めるメソッドを追加する
@@ -91,7 +91,8 @@ class HotelPlan
     public function selectHotelRank($hotel_rank)
     {
         if (!array_key_exists($hotel_rank, self::HOTEL_ROOM_RANK_ADD_FEES)) {
-            return "正しいランクを選択して下さい\n";
+            echo "正しいランクを選択して下さい\n";
+            exit;
         }
         $this->price += self::HOTEL_ROOM_RANK_ADD_FEES[$hotel_rank];
     }
@@ -129,9 +130,7 @@ class TravelPrice
     public function getTotalPrice()
     {
         // PHASE.2 step.1 配列の合計金額を求める処理を完成させる
-        foreach ($this->prices as $price) {
-            $this->total_price += $price;
-        }
+        $this->total_price += array_sum($this->prices);
         return $this->total_price;
     }
 }
