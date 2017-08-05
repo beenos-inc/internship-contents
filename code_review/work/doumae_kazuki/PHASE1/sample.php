@@ -15,29 +15,24 @@ $reciprocation = $train_fare * 2;  //PHASE.1 step.1 往復代を求める処理�
 echo "Fare:" . $reciprocation; 
 echo "\n";
 
-/*
 /**
  * ホテル代を求める
  **/
-/*
 // ホテル部屋代
-const EEE = 5000;
+const room_rent = 5000;
 // 朝食代
-const FFF = 500;
+const breakfast_fee = 500;
 // 夕食代
-const GGG = 800;
+const dinner_fee = 800;
 
 // ホテル代を計算
-$hhh = xxxxx;
+$hotel_fee = room_rent + breakfast_fee + dinner_fee;
 
-echo "ホテル代： " . $hhh . "円";
+echo "HotelFee:" . $hotel_fee . "yen";
 echo "\n";
-*/
 
 /**
  * 旅費合計を求める
  **/
-/*
-$iii = $ddd + $hhh;
-echo "旅費合計： " . $iii . "円";
-*/
+$travel_expenses = $reciprocation + $hotel_fee;
+echo "TravelExpenses:" . $travel_expenses . "yen";
