@@ -1,20 +1,20 @@
 <?php
 $train_plan = new TrainPlan(12500);
 $train_plan->useStudentDiscount();
-$round_trip = $train_plan->getRoundTripPrice();
-echo "交通費: " . $round_trip . "円";
+$round_trip_price = $train_plan->getRoundTripPrice();
+echo "交通費: " . $round_trip_price . "円";
 echo "\n";
 
 $hotel_plan = new HotelPlan(5000);
 $hotel_plan->useSmokerCost();
 $hotel_plan->selectHotelRoomRank('silver');
-$hotel_plan->addBreakfastFee();
-$hotel_plan->addDinnerFee();
+$hotel_plan->addBreakfastPrice();
+$hotel_plan->addDinnerPrice();
 $hotel_price = $hotel_plan->getTotalPrice();
 echo "ホテル代: " . $hotel_price . "円";
 echo "\n";
 
-$travel_price = new TravelPrice($round_trip, $hotel_price);
+$travel_price = new TravelPrice($round_trip_price, $hotel_price);
 $total_price = $travel_price->getTotalPrice();
 echo "旅費合計: " . $total_price . "円";
 
@@ -23,8 +23,6 @@ class TrainPlan
 {
     const STUDENT_DISCOUNT_COEFFICIENT = 0.2;
     private $price = 0;
-    private $isStudent = false;
-
 
     function __construct($price)
     {
@@ -40,8 +38,8 @@ class TrainPlan
     // PHASE.2 step.1 往復代を求めるメソッドを追加する
     public function getRoundTripPrice()
     {
-        $round_trip = $this->price * 2;
-        return $round_trip;
+        $round_trip_price = $this->price * 2;
+        return $round_trip_price;
     }
 }
 
@@ -63,8 +61,6 @@ class HotelPlan
     ];
 
     private $price = 0;
-    private $useSmookerRoom = false;
-
 
     public function __construct($price)
     {
@@ -88,13 +84,13 @@ class HotelPlan
     }
 
     // PHASE.2 step.1 朝食を食べるメソッドを追加する
-    public function addBreakfastFee()
+    public function addBreakfastPrice()
     {
         $this->price += self::MEAL_ADD_FEES['breakfast'];
     }
 
     // PHASE.2 step.1 夕食を食べるメソッドを追加する
-    public function addDinnerFee()
+    public function addDinnerPrice()
     {
         $this->price += self::MEAL_ADD_FEES['dinner'];
     }
