@@ -36,7 +36,5 @@ echo "\n";
 /**
  * 旅費合計を求める
  **/
-/*
-$iii = $ddd + $hhh;
-echo "旅費合計： " . $iii . "円";
-*/
+$travel_expenses_total = $roundtrip_fare + $hotel_fee;
+echo "旅費合計： " . $travel_expenses_total . "円";
