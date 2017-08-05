@@ -15,8 +15,8 @@ $hotel_plan->useSmokerRoom();
 $hotel_plan->selectHotelRank('normal');
 $hotel_price = $hotel_plan->getTotalPrice();
 
-$travel_plan = new TrainPlan($train_price, $hotel_price);
-$total_price = $train_plan->getTotalPrice();
+$travel_plan = new TravelPrice($train_price, $hotel_price);
+$total_price = $travel_plan->getTotalPrice();
 echo "交通費 : " . $train_price . "円\n";
 echo "宿泊費 : " . $hotel_price . "円\n";
 echo "旅費合計 : " . $total_price . "円\n";
