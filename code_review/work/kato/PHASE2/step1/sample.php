@@ -19,16 +19,12 @@ echo "\n";
 $hotel_plan = new HotelPlan();
 //喫煙部屋を使用
 $hotel_plan->useSmokerRoom();
-//echo "useSmokerRoom".$hotel_plan->getTotalPrice()."\n";
 //silverランクの部屋を使用
 $hotel_plan->selectHotelRank();
-//echo "selectHotelRank".$hotel_plan->getTotalPrice()."\n";
 //朝食を食べる
 $hotel_plan->hasBreakfast();
-//echo "hasBreakfast".$hotel_plan->getTotalPrice()."\n";
 //夕食を食べる
 $hotel_plan->hasDinner();
-//echo "hasDinner".$hotel_plan->getTotalPrice()."\n";
 //ホテル料金
 $hotel_price = $hotel_plan->getTotalPrice();
 
@@ -162,7 +158,7 @@ class TravelPrice
     public function __construct($round_trip_price, $hotel_price)
     {
         // PHASE.2 step.1 配列"$prices"に引数の値ををそれぞれ格納する
-        $this->prices=[$round_trip_price,$hotel_price];
+        $this->prices = [$round_trip_price, $hotel_price];
     }
 
     public function getTotalPrice()
