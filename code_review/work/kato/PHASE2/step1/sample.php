@@ -15,59 +15,8 @@ echo "\n";
 /**
  * ホテル代を求める
  **/
- /*
-// ホテル部屋代
-const HOTEL_ROOM_PRICE = 5000;
-// 喫煙ルームオプション代
-const SMOKER_COST = 1000;
-// ホテルの部屋別ランク料金
-const HOTEL_ROOM_RANK_ADD_FEES = [
-    'normal' => 0,
-    'bronze' => 3000,
-    'silver' => 5000,
-    'gold' => 8000
-];
-// 食事料金
-const MEAL_ADD_FEES = [
-    'breakfast' => 500,
-    'dinner' => 800
-];
-
-// 朝食とるorとらない
-$has_breakfast = true;
-// 夕食とるorとらない
-$has_dinner = false;
-// 喫煙or禁煙
-$is_smoker = false;
-// ホテルの部屋ランク
-$select_hotel_rank = 'gold';
-
-
-// ホテル代初期値設定
-$hotel_price = HOTEL_ROOM_PRICE;
-
-// 朝食代加算
-if ($has_breakfast === true) {
-    $hotel_price += MEAL_ADD_FEES['breakfast'];
-}
-// 夕食代加算
-if ($has_dinner === true) {
-    $hotel_price += MEAL_ADD_FEES['dinner'];
-}
-// 喫煙ルームオプション代加算
-if ($is_smoker === true) {
-    $hotel_price += SMOKER_COST;
-}
-// ホテルランク代加算
-if (!array_key_exists($select_hotel_rank, HOTEL_ROOM_RANK_ADD_FEES)) {
-    echo "正しいランクを選択して下さい\n";
-    exit;
-}
-$hotel_price += HOTEL_ROOM_RANK_ADD_FEES[$select_hotel_rank];
-*/
 
 $hotel_plan = new HotelPlan();
-echo "hotel_plan".$hotel_plan->getTotalPrice()."\n";
 //喫煙部屋を使用
 $hotel_plan->useSmokerRoom();
 //echo "useSmokerRoom".$hotel_plan->getTotalPrice()."\n";
@@ -82,7 +31,6 @@ $hotel_plan->hasDinner();
 //echo "hasDinner".$hotel_plan->getTotalPrice()."\n";
 //ホテル料金
 $hotel_price = $hotel_plan->getTotalPrice();
-
 
 echo "ホテル代： " . $hotel_price . "円";
 echo "\n";
