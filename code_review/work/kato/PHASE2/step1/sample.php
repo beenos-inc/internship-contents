@@ -161,6 +161,8 @@ class TravelPrice
     public function __construct($round_trip_price, $hotel_price)
     {
         // PHASE.2 step.1 配列"$prices"に引数の値ををそれぞれ格納する
+        $this->prices=[$round_trip_price,$hotel_price];
+        echo "oooooo: " . $this->prices[0]."/".$this->prices[1]. "\n";
     }
 
     public function getTotalPrice()
