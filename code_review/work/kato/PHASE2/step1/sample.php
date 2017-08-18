@@ -38,6 +38,7 @@ echo "\n";
  $total_plan = new TravelPrice($round_trip,$hotel_price);
  $total_price = $total_plan->getTotalPrice();
 echo "旅費合計： " . $total_price . "円";
+echo "\n";
 
 
 class TrainPlan
