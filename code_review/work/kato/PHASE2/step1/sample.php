@@ -101,7 +101,6 @@ class HotelPlan
 
 
     // ホテル代初期値設定
-
     public function __construct()
     {
       $this->hotel_price = self::HOTEL_ROOM_PRICE;
