@@ -16,7 +16,7 @@ echo "\n";
  * ホテル代を求める
  **/
 
-$hotel_plan = new HotelPlan();
+$hotel_plan = new HotelPlan(5000);
 //喫煙部屋を使用
 $hotel_plan->useSmokerRoom();
 //silverランクの部屋を使用
@@ -74,7 +74,7 @@ class TrainPlan
 class HotelPlan
 {
     // ホテル部屋代
-    const HOTEL_ROOM_PRICE = 5000;
+    private $price = 0;
     // 喫煙ルームオプション代
     const SMOKER_COST = 1000;
     // ホテルの部屋別ランク料金
@@ -101,9 +101,9 @@ class HotelPlan
 
 
     // ホテル代初期値設定
-    public function __construct()
+    public function __construct($price)
     {
-      $this->hotel_price = self::HOTEL_ROOM_PRICE;
+        $this->price = $price;
     }
 
     // PHASE.2 step.1 喫煙可能部屋を使うメソッドを追加する
@@ -111,7 +111,7 @@ class HotelPlan
     {
       // 喫煙ルームオプション代加算
       if ($this->is_smoker === true) {
-          $this->hotel_price += self::SMOKER_COST;
+          $this->price += self::SMOKER_COST;
       }
     }
 
@@ -123,7 +123,7 @@ class HotelPlan
           echo "正しいランクを選択して下さい\n";
           exit;
       }
-          $this->hotel_price += self::HOTEL_ROOM_RANK_ADD_FEES[$this->select_hotel_rank] ;
+          $this->price += self::HOTEL_ROOM_RANK_ADD_FEES[$this->select_hotel_rank] ;
     }
 
     // PHASE.2 step.1 朝食を食べるメソッドを追加する
@@ -131,7 +131,7 @@ class HotelPlan
     {
     // 朝食代加算
       if ($this->has_breakfast === true) {
-          $this->hotel_price += self::MEAL_ADD_FEES['breakfast'];
+          $this->price += self::MEAL_ADD_FEES['breakfast'];
       }
     }
 
@@ -140,13 +140,13 @@ class HotelPlan
     {
     // 朝食代加算
       if ($this->has_dinner === true) {
-          $this->hotel_price += self::MEAL_ADD_FEES['dinner'];
+          $this->price += self::MEAL_ADD_FEES['dinner'];
       }
     }
 
     public function getTotalPrice()
     {
-        return $this->hotel_price;
+        return $this->price;
     }
 }
 
