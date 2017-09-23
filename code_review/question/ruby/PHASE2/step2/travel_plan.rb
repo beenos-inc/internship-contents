@@ -1,0 +1,1 @@
+# PHASE.2 step.2 TravelPlanクラスを作成する

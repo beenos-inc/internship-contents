@@ -1,0 +1,1 @@
+# PHASE.2 step.2 TrainlPlanクラスを作成する
