@@ -9,6 +9,6 @@ school_discount_coefficient = 0.2
 # PHASE.1 step.1 学割のきいた片道運賃の変数名を設定する
 discounted_one_way_fare = (one_way_fare * (1 - school_discount_coefficient)).to_i
 # PHASE.1 step.1 往復運賃を求める処理を記述し、往復運賃の変数名を設定する
-return_fare = discounted_one_way_fare * 2
+round trip = discounted_one_way_fare * 2
 
-puts "交通費：#{return_fare}円"
+puts "交通費：#{round trip}円"
