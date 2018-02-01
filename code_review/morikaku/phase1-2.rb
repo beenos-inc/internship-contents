@@ -5,16 +5,15 @@ def round_trip_fare(basic_single_fare)
   (total_single_fare * 2).round
 end
 
-# ()内には片道の基本料金を入力
-round_trip_fare = round_trip_fare(12500)
-
 def hotel_expences(basic_hotel_expences)
   optional_breakfast_fee         = 500
   optional_dinner_fee            = 800
-  total_breakfast_and_dinner_fee = optional_breakfast_fee + optional_dinner_fee
 
-  basic_hotel_expences + total_breakfast_and_dinner_fee
+  basic_hotel_expences + optional_breakfast_fee + optional_dinner_fee
 end
+
+# ()内には片道の基本料金を入力
+round_trip_fare = round_trip_fare(12500)
 
 # ()内にはホテルの基本料金を入力
 hotel_expences = hotel_expences(5000)
