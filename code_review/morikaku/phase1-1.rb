@@ -1,5 +1,5 @@
 def calculate_transportation_expences(basic_single_fare)
-  student_discount = basic_single_fare * 0.2
+  student_discount  = basic_single_fare * 0.2
   total_single_fare = basic_single_fare - student_discount
 
   round_trip_fare = total_single_fare * 2
