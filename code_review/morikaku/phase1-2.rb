@@ -1,4 +1,4 @@
-def calculate_round_trip_fare(basic_single_fare)
+def round_trip_fare(basic_single_fare)
   student_discount  = basic_single_fare * 0.2
   total_single_fare = basic_single_fare - student_discount
 
@@ -6,9 +6,9 @@ def calculate_round_trip_fare(basic_single_fare)
 end
 
 # ()内には片道の基本料金を入力
-round_trip_fare = calculate_round_trip_fare(12500)
+round_trip_fare = round_trip_fare(12500)
 
-def calculate_hotel_expences(basic_hotel_expences)
+def hotel_expences(basic_hotel_expences)
   optional_breakfast_fee         = 500
   optional_dinner_fee            = 800
   total_breakfast_and_dinner_fee = optional_breakfast_fee + optional_dinner_fee
@@ -17,7 +17,7 @@ def calculate_hotel_expences(basic_hotel_expences)
 end
 
 # ()内にはホテルの基本料金を入力
-hotel_expences = calculate_hotel_expences(5000)
+hotel_expences = hotel_expences(5000)
 
 puts "学割適用後の往復運賃は#{round_trip_fare}円です。"  #=> 学割適用後の往復運賃は20000円です。
 
