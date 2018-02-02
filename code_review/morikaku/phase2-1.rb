@@ -1,6 +1,5 @@
 # 交通費の計算をするクラスを作成
 class TrainPlan
-  
   def initialize(basic_single_fare)
     @basic_single_fare = basic_single_fare
   end
@@ -16,7 +15,6 @@ class TrainPlan
   def student_discount_round_trip_fare_info
     "学割適用後の往復運賃は#{student_discount_round_trip_fare}円です"
   end
-
 end
 
 # 宿泊費を計算するクラスを作成
