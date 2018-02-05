@@ -28,42 +28,29 @@ class HotelPlan
   end
 
   def smoking_room_fee
-    if @choose_smoking_room == "yes"
-      1000
-    else
-      0
-    end
+    (@choose_smoking_room == "yes") ? 1000 : 0
   end
 
   def rank_of_room_fee
-    if @choose_rank_of_room    == "gold"
-      8000
-    elsif @choose_rank_of_room == "silver"
-      5000
-    elsif @choose_rank_of_room == "bronze"
-      3000
-    else
-      0
-    end
+    return 8_000 if @choose_rank_of_room == "gold"
+    return 5_000 if @choose_rank_of_room == "silver"
+    return 3_000 if @choose_rank_of_room == "bronze"
+    0
   end
 
   def breakfast_fee
-    if @choose_breakfast == "yes"
-      500
-    else
-      0
-    end
+    (@choose_breakfast == "yes") ? 500 : 0
   end
 
   def dinner_fee
-    if @choose_dinner == "yes"
-      800
-    else
-      0
-    end
+    (@choose_dinner == "yes") ? 800 : 0
+  end
+
+  def total_hotel_fee
+    @basic_hotel_fee + smoking_room_fee + rank_of_room_fee + breakfast_fee + dinner_fee
   end
 
   def total_hotel_fee_info
-    "ホテルの宿泊料金は#{@basic_hotel_fee + smoking_room_fee + rank_of_room_fee + breakfast_fee + dinner_fee}円です。"
+    "ホテルの宿泊料金は#{total_hotel_fee}円です。"
   end
 end
