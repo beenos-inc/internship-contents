@@ -1,4 +1,4 @@
-# 交通費の計算をするクラスを作成
+#往復運賃の計算をするクラス
 class TrainPlan
   def initialize(basic_single_fare)
     @basic_single_fare = basic_single_fare
@@ -17,7 +17,7 @@ class TrainPlan
   end
 end
 
-# 宿泊費を計算するクラスを作成
+# ホテル料金を計算するクラス
 class HotelPlan
   def initialize(basic_hotel_fee:, choose_smoking_room:, choose_rank_of_room:, choose_breakfast:, choose_dinner:)
     @basic_hotel_fee     = basic_hotel_fee
@@ -46,11 +46,32 @@ class HotelPlan
     (@choose_dinner == "yes") ? 800 : 0
   end
 
-  def total_hotel_fee
+  def hotel_fee_include_options
     @basic_hotel_fee + smoking_room_fee + rank_of_room_fee + breakfast_fee + dinner_fee
   end
 
-  def total_hotel_fee_info
-    "ホテルの宿泊料金は#{total_hotel_fee}円です。"
+  def hotel_fee_include_options_info
+    "ホテルの宿泊料金は#{hotel_fee_include_options}円です。"
+  end
+end
+
+# 往復運賃とホテル料金を合計した旅費を計算するクラス
+class TravelPrice
+  def total_train_fare
+    train_plan = TrainPlan.new(12500)
+    train_plan.student_discount_round_trip_fare
+  end
+
+  def total_hotel_fee
+    hotel_plan = HotelPlan.new(basic_hotel_fee:5000, choose_smoking_room:"yes", choose_rank_of_room:"gold", choose_breakfast:"yes", choose_dinner:"yes")
+    hotel_plan.hotel_fee_include_options
+  end
+
+  def total_travel_fee
+    total_train_fare + total_hotel_fee
+  end
+
+  def total_travel_fee_info
+    "旅費の合計金額は#{total_travel_fee}円です。"
   end
 end
