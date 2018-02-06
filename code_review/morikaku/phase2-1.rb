@@ -1,6 +1,6 @@
 #往復運賃の計算をするクラス
 class TrainPlan
-  def initialize(basic_single_fare)
+  def initialize(basic_single_fare:)
     @basic_single_fare = basic_single_fare
   end
 
@@ -57,13 +57,22 @@ end
 
 # 往復運賃とホテル料金を合計した旅費を計算するクラス
 class TravelPrice
+  def initialize(basic_single_fare:, basic_hotel_fee:, choose_smoking_room:, choose_rank_of_room:, choose_breakfast:, choose_dinner:)
+    @basic_single_fare = basic_single_fare
+    @basic_hotel_fee = basic_hotel_fee
+    @choose_smoking_room = choose_smoking_room
+    @choose_rank_of_room = choose_rank_of_room
+    @choose_breakfast = choose_breakfast
+    @choose_dinner = choose_dinner
+  end
+
   def total_train_fare
-    train_plan = TrainPlan.new(12500)
+    train_plan = TrainPlan.new(basic_single_fare:@basic_single_fare)
     train_plan.student_discount_round_trip_fare
   end
 
   def total_hotel_fee
-    hotel_plan = HotelPlan.new(basic_hotel_fee:5000, choose_smoking_room:"yes", choose_rank_of_room:"gold", choose_breakfast:"yes", choose_dinner:"yes")
+    hotel_plan = HotelPlan.new(basic_hotel_fee:@basic_hotel_fee, choose_smoking_room:@choose_smoking_room, choose_rank_of_room:@choose_rank_of_room, choose_breakfast:@choose_breakfast, choose_dinner:@choose_dinner)
     hotel_plan.hotel_fee_include_options
   end
 
