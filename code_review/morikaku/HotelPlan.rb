@@ -30,8 +30,4 @@ class HotelPlan
   def hotel_fee_include_options
     @basic_hotel_fee + smoking_room_fee + rank_of_room_fee + breakfast_fee + dinner_fee
   end
-
-  def hotel_fee_include_options_info
-    "ホテル料金は#{hotel_fee_include_options}円です。"
-  end
 end
