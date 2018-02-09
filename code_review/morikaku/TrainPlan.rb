@@ -22,7 +22,7 @@ class TrainPlan
     student_discount_single_fare + green_car_fare
   end
 
-  def train_round_trip_fare
+  def round_trip_fare
     student_discount_single_fare_include_green_car_fare * 2
   end
 end

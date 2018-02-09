@@ -18,7 +18,7 @@ class BusPlan
     (@choose_coupon_discount == "yes") ? (student_discount_single_fare * 0.9).round : student_discount_single_fare
   end
 
-  def bus_round_trip_fare
+  def round_trip_fare
     coupon_discount_single_fare * 2
   end
 end

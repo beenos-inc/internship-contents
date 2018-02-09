@@ -18,7 +18,7 @@ class AirplanePlan
     (@choose_early_booking_discount == "yes") ? (student_discount_single_fare * 0.7).round : student_discount_single_fare
   end
 
-  def airplane_round_trip_fare
+  def round_trip_fare
     early_booking_discount_single_fare * 2
   end
 end

@@ -28,18 +28,18 @@ class TravelPlan
       student_discount_rate: @train_student_discount_rate,
       choose_green_car:      @choose_green_car
     )
-    train_plan.train_round_trip_fare
+    train_plan.round_trip_fare
   end
 
   def total_hotel_fee
     hotel_plan = HotelPlan.new(
-      basic_hotel_fee:     @basic_hotel_fee,
+      basic_fee:           @basic_hotel_fee,
       choose_smoking_room: @choose_smoking_room,
       choose_rank_of_room: @choose_rank_of_room,
       choose_breakfast:    @choose_breakfast,
       choose_dinner:       @choose_dinner
     )
-    hotel_plan.hotel_fee_include_options
+    hotel_plan.total_fee
   end
 
   def total_airplane_fare
@@ -48,7 +48,7 @@ class TravelPlan
       student_discount_rate:         @airplane_student_discount_rate,
       choose_early_booking_discount: @choose_early_booking_discount
     )
-    airplane_plan.airplane_round_trip_fare
+    airplane_plan.round_trip_fare
   end
 
   def total_bus_fare
@@ -57,7 +57,7 @@ class TravelPlan
       student_discount_rate:  @bus_student_discount_rate,
       choose_coupon_discount: @choose_coupon_discount
     )
-    bus_plan.bus_round_trip_fare
+    bus_plan.round_trip_fare
   end
 
   def total_travel_fee
