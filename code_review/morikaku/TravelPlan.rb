@@ -24,11 +24,11 @@ class TravelPlan
 
   def total_train_fare
     train_plan = TrainPlan.new(
-      train_single_fare:           @train_single_fare,
-      train_student_discount_rate: @train_student_discount_rate,
-      choose_green_car:            @choose_green_car
+      single_fare:           @train_single_fare,
+      student_discount_rate: @train_student_discount_rate,
+      choose_green_car:      @choose_green_car
     )
-    train_plan.train_round_trip_fare_include_green_car_fare
+    train_plan.train_round_trip_fare
   end
 
   def total_hotel_fee
@@ -44,20 +44,20 @@ class TravelPlan
 
   def total_airplane_fare
     airplane_plan = AirplanePlan.new(
-      airplane_single_fare:           @airplane_single_fare,
-      airplane_student_discount_rate: @airplane_student_discount_rate,
-      choose_early_booking_discount:  @choose_early_booking_discount
+      single_fare:                   @airplane_single_fare,
+      student_discount_rate:         @airplane_student_discount_rate,
+      choose_early_booking_discount: @choose_early_booking_discount
     )
-    airplane_plan.airplane_round_trip_fare_include_discount
+    airplane_plan.airplane_round_trip_fare
   end
 
   def total_bus_fare
     bus_plan = BusPlan.new(
-      bus_single_fare:           @bus_single_fare,
-      bus_student_discount_rate: @bus_student_discount_rate,
-      choose_coupon_discount:    @choose_coupon_discount
+      single_fare:            @bus_single_fare,
+      student_discount_rate:  @bus_student_discount_rate,
+      choose_coupon_discount: @choose_coupon_discount
     )
-    bus_plan.bus_round_trip_fare_include_discount
+    bus_plan.bus_round_trip_fare
   end
 
   def total_travel_fee
