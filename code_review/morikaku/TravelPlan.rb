@@ -28,6 +28,7 @@ class TravelPlan
       student_discount_rate: @train_student_discount_rate,
       choose_green_car:      @choose_green_car
     )
+    train_plan.check_rate_number
     train_plan.round_trip_fare
   end
 
@@ -48,6 +49,7 @@ class TravelPlan
       student_discount_rate:         @airplane_student_discount_rate,
       choose_early_booking_discount: @choose_early_booking_discount
     )
+    airplane_plan.check_rate_number
     airplane_plan.round_trip_fare
   end
 
@@ -57,6 +59,7 @@ class TravelPlan
       student_discount_rate:  @bus_student_discount_rate,
       choose_coupon_discount: @choose_coupon_discount
     )
+    bus_plan.check_rate_number
     bus_plan.round_trip_fare
   end
 

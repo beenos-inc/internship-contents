@@ -6,11 +6,13 @@ class BusPlan
     @choose_coupon_discount = choose_coupon_discount
   end
 
-  def student_discount_fare(fare)
+  def check_rate_number
     if @student_discount_rate < 0 || 100 <= @student_discount_rate
       raise "学割の値は0より大きく100未満の値を入れてください。"
     end
+  end
 
+  def student_discount_fare(fare)
     (fare * (1 - (@student_discount_rate / 100.0))).round
   end
 
