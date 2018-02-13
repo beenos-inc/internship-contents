@@ -1,7 +1,7 @@
-# ホテル料金を計算するクラス
+# ホテル料金（各種オプション料金含む）を計算するクラス
 class HotelPlan
-  def initialize(basic_hotel_fee:, choose_smoking_room:, choose_rank_of_room:, choose_breakfast:, choose_dinner:)
-    @basic_hotel_fee     = basic_hotel_fee
+  def initialize(basic_fee:, choose_smoking_room:, choose_rank_of_room:, choose_breakfast:, choose_dinner:)
+    @basic_fee           = basic_fee
     @choose_smoking_room = choose_smoking_room
     @choose_rank_of_room = choose_rank_of_room
     @choose_breakfast    = choose_breakfast
@@ -27,7 +27,7 @@ class HotelPlan
     (@choose_dinner == "yes") ? 800 : 0
   end
 
-  def hotel_fee_include_options
-    @basic_hotel_fee + smoking_room_fee + rank_of_room_fee + breakfast_fee + dinner_fee
+  def total_fee
+    @basic_fee + smoking_room_fee + rank_of_room_fee + breakfast_fee + dinner_fee
   end
 end
