@@ -17,8 +17,15 @@ travel_plan = TravelPlan.new(
   choose_coupon_discount:         "yes"
 )
 
+travel_plan.check_train_student_discount_rate
 puts travel_plan.total_train_fare_info
+
 puts travel_plan.total_hotel_fee_info
+
+travel_plan.check_airplane_student_discount_rate
 puts travel_plan.total_airplane_fare_info
+
+travel_plan.check_bus_student_discount_rate
 puts travel_plan.total_bus_fare_info
+
 puts travel_plan.total_travel_fee_info

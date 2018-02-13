@@ -28,8 +28,16 @@ class TravelPlan
       student_discount_rate: @train_student_discount_rate,
       choose_green_car:      @choose_green_car
     )
-    train_plan.check_rate_number
     train_plan.round_trip_fare
+  end
+
+  def check_train_student_discount_rate
+    rate_number = TrainPlan.new(
+      basic_single_fare:     @train_single_fare,
+      student_discount_rate: @train_student_discount_rate,
+      choose_green_car:      @choose_green_car
+    )
+    rate_number.check_rate_number
   end
 
   def total_hotel_fee
@@ -49,8 +57,16 @@ class TravelPlan
       student_discount_rate:         @airplane_student_discount_rate,
       choose_early_booking_discount: @choose_early_booking_discount
     )
-    airplane_plan.check_rate_number
     airplane_plan.round_trip_fare
+  end
+
+  def check_airplane_student_discount_rate
+    rate_number = AirplanePlan.new(
+      basic_single_fare:             @airplane_single_fare,
+      student_discount_rate:         @airplane_student_discount_rate,
+      choose_early_booking_discount: @choose_early_booking_discount
+    )
+    rate_number.check_rate_number
   end
 
   def total_bus_fare
@@ -59,8 +75,16 @@ class TravelPlan
       student_discount_rate:  @bus_student_discount_rate,
       choose_coupon_discount: @choose_coupon_discount
     )
-    bus_plan.check_rate_number
     bus_plan.round_trip_fare
+  end
+
+  def check_bus_student_discount_rate
+    rate_number = BusPlan.new(
+      basic_single_fare:      @bus_single_fare,
+      student_discount_rate:  @bus_student_discount_rate,
+      choose_coupon_discount: @choose_coupon_discount
+    )
+    rate_number.check_rate_number
   end
 
   def total_travel_fee
