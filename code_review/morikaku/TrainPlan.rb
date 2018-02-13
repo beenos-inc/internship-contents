@@ -4,11 +4,12 @@ class TrainPlan
     @basic_single_fare     = basic_single_fare
     @student_discount_rate = student_discount_rate
     @choose_green_car      = choose_green_car
+    check_rate_number
   end
 
   def check_rate_number
-    if @student_discount_rate < 0 || 100 <= @student_discount_rate
-      raise "学割の値は0より大きく100未満の値を入れてください。"
+    if @student_discount_rate <= 0 || 100 < @student_discount_rate
+      raise "学割の値は0より大きく100以下の値を入れてください。"
     end
   end
 
