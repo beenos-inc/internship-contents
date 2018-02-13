@@ -24,7 +24,7 @@ class TravelPlan
 
   def total_train_fare
     train_plan = TrainPlan.new(
-      single_fare:           @train_single_fare,
+      basic_single_fare:     @train_single_fare,
       student_discount_rate: @train_student_discount_rate,
       choose_green_car:      @choose_green_car
     )
@@ -44,7 +44,7 @@ class TravelPlan
 
   def total_airplane_fare
     airplane_plan = AirplanePlan.new(
-      single_fare:                   @airplane_single_fare,
+      basic_single_fare:             @airplane_single_fare,
       student_discount_rate:         @airplane_student_discount_rate,
       choose_early_booking_discount: @choose_early_booking_discount
     )
@@ -53,7 +53,7 @@ class TravelPlan
 
   def total_bus_fare
     bus_plan = BusPlan.new(
-      single_fare:            @bus_single_fare,
+      basic_single_fare:      @bus_single_fare,
       student_discount_rate:  @bus_student_discount_rate,
       choose_coupon_discount: @choose_coupon_discount
     )
