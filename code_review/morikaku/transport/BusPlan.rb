@@ -15,16 +15,16 @@ class BusPlan < TransportPlan
     end
   end
 
-  def student_discount
-    (@basic_single_fare * (@student_discount_rate / 100.0)).round
+  def student_discount(fare)
+    (fare * (1 - (@student_discount_rate / 100.0))).round
   end
 
-  def coupon_discount
-    (@choose_coupon_discount == "yes") ? (@basic_single_fare * 0.1).round : 0
+  def coupon_discount(fare)
+    (@choose_coupon_discount == "yes") ? (fare * 0.9).round : fare
   end
 
   def discount_fare
-    @basic_single_fare - ((@basic_single_fare - student_discount) - coupon_discount)
+    @basic_single_fare - (coupon_discount(student_discount(@basic_single_fare)))
   end
 
   def additional_fare

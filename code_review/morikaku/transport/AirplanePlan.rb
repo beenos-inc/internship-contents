@@ -15,16 +15,16 @@ class AirplanePlan < TransportPlan
     end
   end
 
-  def student_discount
-    (@basic_single_fare * (@student_discount_rate / 100.0)).round
+  def student_discount(fare)
+    (fare * (1 - (@student_discount_rate / 100.0))).round
   end
 
-  def early_booking_discount
-    (@choose_early_booking_discount == "yes") ? (@basic_single_fare * 0.3).round : 0
+  def early_booking_discount(fare)
+    (@choose_early_booking_discount == "yes") ? (fare * 0.7).round : fare
   end
 
   def discount_fare
-    @basic_single_fare - ((@basic_single_fare - student_discount) - early_booking_discount)
+    @basic_single_fare - (early_booking_discount(student_discount(@basic_single_fare)))
   end
 
   def additional_fare
