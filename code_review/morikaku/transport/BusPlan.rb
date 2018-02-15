@@ -1,5 +1,7 @@
+require "./transport/TransportPlan"
+
 # バスの往復料金の計算（学割、クーポン割含む）をするBusPlanクラス
-class BusPlan
+class BusPlan < TransportPlan
   def initialize(basic_single_fare:, student_discount_rate:, choose_coupon_discount:)
     @basic_single_fare      = basic_single_fare
     @student_discount_rate  = student_discount_rate
@@ -13,19 +15,19 @@ class BusPlan
     end
   end
 
-  def student_discount_fare(fare)
+  def student_discount(fare)
     (fare * (1 - (@student_discount_rate / 100.0))).round
   end
 
-  def coupon_discount_fare(fare)
+  def coupon_discount(fare)
     (@choose_coupon_discount == "yes") ? (fare * 0.9).round : fare
   end
 
-  def single_fare
-    coupon_discount_fare(student_discount_fare(@basic_single_fare))
+  def discount_fare
+    @basic_single_fare - (coupon_discount(student_discount(@basic_single_fare)))
   end
 
-  def round_trip_fare
-    single_fare * 2
+  def additional_fare
+    0
   end
 end
