@@ -1,7 +1,7 @@
-require "./TrainPlan"
-require "./HotelPlan"
-require "./AirplanePlan"
-require "./BusPlan"
+require './HotelPlan'
+require './transport/TrainPlan'
+require './transport/AirplanePlan'
+require './transport/BusPlan'
 
 # 電車、飛行機、バス料金とホテル料金を合計した旅費を計算するTravelPlanクラス
 class TravelPlan
