@@ -1,13 +1,8 @@
 <?php
-  require('functions.php');
-  const NUMBER_OF_QUESTION = 5;
+  require('funcExercise.php');
 
   $digit = sanitize($_POST['digit']);
   $calculation = sanitize($_POST['calculation']);
-
-  if ($digit == '') {
-    exit('問題桁数が選択されていません');
-  }
 
   if ($digit == 1) {
     $max = 9;
@@ -15,34 +10,18 @@
     $max = 99;
   }
 
-  for ($i=0; $i < NUMBER_OF_QUESTION; $i++) { 
-    $number1[] = rand(0, $max);
-    $number2[] = rand(0, $max);
+  if (in_array(1, $calculation) && in_array(2, $calculation)) {
+    $output = 1;
+  } else if (in_array(2, $calculation)) {
+    $output = 2;
+  } else {
+    $output = 3;
   }
 
-  // 足し算と引き算の式作成、および解答を記録
-  if (in_array(1, $calculation) && in_array(2, $calculation)) {
-    for ($i=0; $i < NUMBER_OF_QUESTION; $i++) { 
-      $operator = rand(0, 1);
-      if ($operator == 0) {
-        $answers[] = $number1[$i] + $number2[$i];
-        $questions[] = $number1[$i].' + '.$number2[$i].' = ';
-      } else {
-        $answers[] = $number1[$i] - $number2[$i];
-        $questions[] = $number1[$i].' - '.$number2[$i].' = ';
-      }
-    }
-  } else if (in_array(2, $calculation)) {
-    for ($i=0; $i < NUMBER_OF_QUESTION; $i++) { 
-      $answers[] = $number1[$i] - $number2[$i];
-      $questions[] = $number1[$i].' - '.$number2[$i].' = ';
-    }
-  } else {
-    for ($i=0; $i < NUMBER_OF_QUESTION; $i++) { 
-      $answers[] = $number1[$i] + $number2[$i];
-      $questions[] = $number1[$i].' + '.$number2[$i].' = ';
-    }
-  }
+   
+  $question = new GenerateQuestions($max, $output);
+  $formula = $question->generateFormula();
+  var_dump($formula);
 
 ?>
 
@@ -61,16 +40,16 @@
     選択したのは0-<?php echo $max; ?>までの問題です。<br>
     全部で<?php echo NUMBER_OF_QUESTION ?>問出題します。
   </p>
-  <form action="result.php" method="post">
+  <form action="result.php" method="post" onsubmit="return validation()">
     <?php 
-      for ($i=0; $i < NUMBER_OF_QUESTION; $i++) {
-        $j = $i + 1;
-        echo $j.'問目  '.$questions[$i].'<input type="text" name="responses[]"><br>';
-        echo '<input type="hidden" name="questions[]" value="'.$questions[$i].'">';
-        echo '<input type="hidden" name="answers[]" value="'.$answers[$i].'">';
+      foreach ($formula as $key => $value) {
+        echo '問目  '.$key.'<input type="text" name="responses[] value=""><br>';
+        echo '<input type="hidden" name="questions[]" value="'.$key.'">';
+        echo '<input type="hidden" name="answers[]" value="'.$value.'">';
       }
     ?>
     <input type="submit" value="送信">
   </form>
+  <button type="button" onclick="clearInput()">リセット</button>
 </body>
 </html>
