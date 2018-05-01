@@ -1,10 +1,8 @@
 function validation() {
   var elements = document.querySelectorAll('input[type="text"]');
-  var bool = [...elements].some(element => {
-    if (element.value === '') {
-      return false;
-    }
-    return true;
+  bool = true;
+  var bool = ![...elements].some(element => {
+      return element.value === '';
   });
 
   if (!bool) alert('未入力項目があります');
