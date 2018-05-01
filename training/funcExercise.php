@@ -26,17 +26,17 @@
       switch ($this->output) {
         case 1:
           for ($i=0; $i < NUMBER_OF_QUESTION; $i++) { 
-            $formula[] = $this->generateUnsettledFormula(rand(0, $this->max), rand(0, $this->max));
+            $formula = $formula + $this->generateUnsettledFormula(rand(0, $this->max), rand(0, $this->max));
           }
           break;
         case 2:
           for ($i=0; $i < NUMBER_OF_QUESTION; $i++) { 
-            $formula[] = $this->generateSubtractionFormula(rand(0, $this->max), rand(0, $this->max));
+            $formula = $formula + $this->generateSubtractionFormula(rand(0, $this->max), rand(0, $this->max));
           }
           break;
         case 3:
           for ($i=0; $i < NUMBER_OF_QUESTION; $i++) { 
-            $formula = $this->generateAdditionFormula(rand(0, $this->max), rand(0, $this->max));
+            $formula = $formula + $this->generateAdditionFormula(rand(0, $this->max), rand(0, $this->max));
           }
           break;
         
