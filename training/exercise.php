@@ -1,13 +1,16 @@
 <?php
+  const RANGE_OF_DIGIT_9 = 9;
+  const RANGE_OF_DIGIT_99 = 99;
+
   require('funcExercise.php');
 
   $digit = sanitize($_POST['digit']);
   $calculation = sanitize($_POST['calculation']);
 
   if ($digit == 1) {
-    $max = 9;
+    $max = RANGE_OF_DIGIT_9;
   } else {
-    $max = 99;
+    $max = RANGE_OF_DIGIT_99;
   }
 
   if (in_array(1, $calculation) && in_array(2, $calculation)) {
@@ -18,10 +21,8 @@
     $output = 3;
   }
 
-   
   $question = new GenerateQuestions($max, $output);
   $formula = $question->generateFormula();
-  var_dump($formula);
 
 ?>
 
@@ -43,7 +44,8 @@
   <form action="result.php" method="post" onsubmit="return validation()">
     <?php 
       foreach ($formula as $key => $value) {
-        echo '問目  '.$key.'<input type="text" name="responses[] value=""><br>';
+        $count++;
+        echo $count.'問目  '.$key.'<input type="text" name="responses[] value=""><br>';
         echo '<input type="hidden" name="questions[]" value="'.$key.'">';
         echo '<input type="hidden" name="answers[]" value="'.$value.'">';
       }
