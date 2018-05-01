@@ -1,22 +1,20 @@
 <?php
-  require('functions.php');
-  const NUMBER_OF_QUESTION = 5;
+  require('funcResult.php');
 
   $responses = sanitize($_POST['responses']);
   $questions = sanitize($_POST['questions']);
   $answers = sanitize($_POST['answers']);
 
-  if (count($responses) != NUMBER_OF_QUESTION) {
+  if (count($responses) != count($questions)) {
     exit('全ての項目に解答していません。');
   }
 
-  for ($i=0; $i < NUMBER_OF_QUESTION; $i++) { 
-    if ($responses[$i] == $answers[$i]) {
-      $comments[] = '...正解';
-    } else {
-      $comments[] = '...不正解。答えは'.$answers[$i];
-    }
+  foreach ($responses as $response) {
+    if(!is_numeric($response)) exit('数値で解答してください。');
   }
+
+  $comments = checkTheAnswer($responses, $answers);
+  
 ?>
 
 <!DOCTYPE html>
