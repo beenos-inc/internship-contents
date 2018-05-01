@@ -1,4 +1,6 @@
 <?php
+const NUMBER_OF_QUESTION = 5;
+
   function sanitize($target) {
     if (is_array($target)) {
       foreach ($target as $value) {
