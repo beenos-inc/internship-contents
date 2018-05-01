@@ -12,7 +12,7 @@
   <form action="exercise.php" method="post">
     <p>
       問題桁数<br>
-      <input type="radio" name="digit" value="1">0-9まで<br>
+      <input type="radio" name="digit" value="1" checked="checked">0-9まで<br>
       <input type="radio" name="digit" value="2">0-99まで
     </p>
     <p>
@@ -22,6 +22,6 @@
     </p>
     <input type="submit">
   </form>
-  <button type="button" id="reset">リセット</button>
+  <button type="button" onclick="clearInput()">リセット</button>
 </body>
 </html>
