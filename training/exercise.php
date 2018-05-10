@@ -4,19 +4,27 @@
 
   require('funcExercise.php');
 
-  $digit = sanitize($_POST['digit']);
-  $calculation = sanitize($_POST['calculation']);
-
-  $max = ($digit == 1) ? RANGE_OF_DIGIT_9 : RANGE_OF_DIGIT_99;
-
-  if (count($calculation) == 2) {
-    $output = 3;
+  session_start();
+  if (isset($_SESSION['errorMessage'])) {
+    foreach ($_SESSION as $key => $value) {
+      echo $value . "\n";
+    }
+    unset($_SESSION['errorMessage']);
   } else {
-    $output = $calculation[0];
+    $digit = sanitize($_POST['digit']);
+    $calculation = sanitize($_POST['calculation']);
+  
+    $max = ($digit == 1) ? RANGE_OF_DIGIT_9 : RANGE_OF_DIGIT_99;
+  
+    if (count($calculation) == 2) {
+      $output = 3;
+    } else {
+      $output = $calculation[0];
+    }
+  
+    $question = new funcExercise($max, $output);
+    $formula = $question->generateFormula();
   }
-
-  $question = new funcExercise($max, $output);
-  $formula = $question->generateFormula();
 
 ?>
 
