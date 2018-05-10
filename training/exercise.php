@@ -7,11 +7,7 @@
   $digit = sanitize($_POST['digit']);
   $calculation = sanitize($_POST['calculation']);
 
-  if ($digit == 1) {
-    $max = RANGE_OF_DIGIT_9;
-  } else {
-    $max = RANGE_OF_DIGIT_99;
-  }
+  $max = ($digit == 1) ? RANGE_OF_DIGIT_9 : RANGE_OF_DIGIT_99;
 
   if (in_array(1, $calculation) && in_array(2, $calculation)) {
     $output = 1;
