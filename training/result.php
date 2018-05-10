@@ -5,12 +5,17 @@
   $questions = sanitize($_POST['questions']);
   $answers = sanitize($_POST['answers']);
 
+  session_start();
   if (count($responses) != count($questions)) {
-    exit('全ての項目に解答していません。');
+    $_SESSION['errorMessage'] = '全ての項目に解答していません';
+    header('Location: exercise.php');
   }
 
   foreach ($responses as $response) {
-    if(!is_numeric($response)) exit('数値で解答してください。');
+    if(!is_numeric($response)) {
+      $_SESSION['errorMessage'] = '数値で解答してください。';
+      header('Location: exercise.php');
+    }
   }
 
   $comments = checkTheAnswer($responses, $answers);
