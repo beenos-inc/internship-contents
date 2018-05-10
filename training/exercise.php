@@ -9,12 +9,10 @@
 
   $max = ($digit == 1) ? RANGE_OF_DIGIT_9 : RANGE_OF_DIGIT_99;
 
-  if (in_array(1, $calculation) && in_array(2, $calculation)) {
-    $output = 1;
-  } else if (in_array(2, $calculation)) {
-    $output = 2;
-  } else {
+  if (count($calculation) == 2) {
     $output = 3;
+  } else {
+    $output = $calculation[0];
   }
 
   $question = new GenerateQuestions($max, $output);
