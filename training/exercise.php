@@ -2,6 +2,10 @@
   const RANGE_OF_DIGIT_9 = 9;
   const RANGE_OF_DIGIT_99 = 99;
 
+  const ADDITION_FORMULA = 1;
+  const SUBTRACTION_FORMULA = 2;
+  const UNSETTELED_FORMULA = 3;
+
   require('funcExercise.php');
 
   session_start();
@@ -17,9 +21,9 @@
     $max = ($digit == 1) ? RANGE_OF_DIGIT_9 : RANGE_OF_DIGIT_99;
   
     if (count($calculation) == 2) {
-      $output = 3;
-    } else {
-      $output = $calculation[0];
+      $output = UNSETTELED_FORMULA;
+    }  else {
+      $output = empty($calculation) ?  ADDITION_FORMULA : $calculation[0];
     }
   
     $question = new funcExercise($max, $output);
