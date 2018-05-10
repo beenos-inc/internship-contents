@@ -15,7 +15,7 @@
     $output = $calculation[0];
   }
 
-  $question = new GenerateQuestions($max, $output);
+  $question = new funcExercise($max, $output);
   $formula = $question->generateFormula();
 
 ?>

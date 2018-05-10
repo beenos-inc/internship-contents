@@ -1,7 +1,7 @@
 <?php
   require('functions.php');
 
-  class GenerateQuestions {
+  class funcExercise {
     private $max;
     private $output;
     function __construct($max, $output) {
