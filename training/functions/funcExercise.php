@@ -18,7 +18,7 @@
     private $output;
     private $num1 = 0;
     private $num2 = 0;
-    
+
     function __construct($digit, $calculation) {
       $this->max = ($digit == 1) ? RANGE_OF_DIGIT_9 : RANGE_OF_DIGIT_99;
 
@@ -66,7 +66,6 @@
         case 3:
             return $this->generateUnsettledFormula();
           break;
-        
         default:
             return array();
           break;
