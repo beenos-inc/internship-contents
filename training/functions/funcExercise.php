@@ -1,4 +1,11 @@
 <?php
+  const RANGE_OF_DIGIT_9 = 9;
+  const RANGE_OF_DIGIT_99 = 99;
+
+  const ADDITION_FORMULA = 1;
+  const SUBTRACTION_FORMULA = 2;
+  const UNSETTELED_FORMULA = 3;
+
   require('functions.php');
 
   /**
@@ -11,9 +18,14 @@
     private $output;
     private $num1 = 0;
     private $num2 = 0;
-    function __construct($max, $output) {
-      $this->max = $max;
-      $this->output = $output;
+    function __construct($digit, $calculation) {
+      $this->max = ($digit == 1) ? RANGE_OF_DIGIT_9 : RANGE_OF_DIGIT_99;
+      
+      if (count($calculation) == 2) {
+        $this->output = UNSETTELED_FORMULA;
+      }  else {
+        $this->output = empty($calculation) ?  ADDITION_FORMULA : $calculation[0];
+      }
     }
 
     /**

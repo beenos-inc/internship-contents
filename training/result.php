@@ -1,26 +1,12 @@
 <?php
-  require('./functions/funcResult.php');
+  require('./functions/functions.php');
 
   $responses = sanitize($_POST['responses']);
   $questions = sanitize($_POST['questions']);
   $answers = sanitize($_POST['answers']);
 
-  // 入力された解答に誤りがある場合
-  // sessionにエラーメッセージを入れて
-  // exercise.phpにリダイレクトする
-  session_start();
-  if (count($responses) != count($questions)) {
-    $_SESSION['errorMessage'] = '全ての項目に解答していません';
-    header('Location: exercise.php');
-  }
-
-  foreach ($responses as $response) {
-    if(!is_numeric($response)) {
-      $_SESSION['errorMessage'] = '数値で解答してください。';
-      header('Location: exercise.php');
-    }
-  }
-
+  errorCheck($questions, $responses);
+  
   $comments = checkTheAnswer($responses, $answers);
   
 ?>
@@ -31,7 +17,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Trainingå</title>
+  <title>Training</title>
 </head>
 <body>
   <p>計算練習結果</p>

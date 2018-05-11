@@ -1,38 +1,21 @@
 <?php
-  const RANGE_OF_DIGIT_9 = 9;
-  const RANGE_OF_DIGIT_99 = 99;
-
-  const ADDITION_FORMULA = 1;
-  const SUBTRACTION_FORMULA = 2;
-  const UNSETTELED_FORMULA = 3;
 
   require('./functions/funcExercise.php');
 
-  session_start();
-  // sessionにエラーメッセージが存在するとき
-  // エラーメッセージを表示
-  if (isset($_SESSION['errorMessage'])) {
-    foreach ($_SESSION as $key => $value) {
-      echo $value . "\n";
-    }
-    unset($_SESSION['errorMessage']);
-  } else {
-    // sessionにエラーメッセージが存在しないとき
-    // 計算問題を作成する
+
     $digit = sanitize($_POST['digit']);
     $calculation = sanitize($_POST['calculation']);
-  
-    $max = ($digit == 1) ? RANGE_OF_DIGIT_9 : RANGE_OF_DIGIT_99;
-  
-    if (count($calculation) == 2) {
-      $output = UNSETTELED_FORMULA;
-    }  else {
-      $output = empty($calculation) ?  ADDITION_FORMULA : $calculation[0];
+
+    // sessionにエラーメッセージが存在する場合は表示する
+    $bool = showErrorMessage();
+
+    // sessionにエラーメッセージが存在しない場合、
+    // 計算式を表示する
+    if (!$bool) {
+      $question = new funcExercise($digit, $calculation);
+      $formula = $question->generateFormula();
     }
-  
-    $question = new funcExercise($max, $output);
-    $formula = $question->generateFormula();
-  }
+
 
 ?>
 
