@@ -1,6 +1,11 @@
 <?php
   require('functions.php');
 
+  /**
+   * 
+   * @author 河崎鷹大
+   * 
+   */
   class funcExercise {
     private $max;
     private $output;
@@ -11,6 +16,14 @@
       $this->output = $output;
     }
 
+    /**
+     * public
+     * generateFormula
+     * 
+     * 表示する計算式を出力する
+     * 
+     * @return array
+     */
     public function generateFormula() {
       $formula = [];
       for ($i=0; $i < NUMBER_OF_QUESTION; $i++) { 
@@ -19,6 +32,15 @@
       return $formula;
     }
 
+    /**
+     * private
+     * decideFormulaBranch
+     * 
+     * 出力する計算式が足し算か引き算のみか
+     * 足し算と引き算を混ぜるか判定する
+     * 
+     * @return array
+     */
     private function decideFormulaBranch() {
       $this->rand();
       switch ($this->output) {
@@ -38,16 +60,46 @@
       }
     }
 
+    /**
+     * private
+     * generateAdditionFormula
+     * 
+     * 足し算の式を作成
+     * 
+     * @return array
+     */
     private function generateAdditionFormula() {
       return array($this->num1.' + '.$this->num2.' = ' => $this->num1 + $this->num2);
     }
+    /**
+     * private
+     * generateSubtractionFormula
+     * 
+     * 引き算の式を作成
+     * 
+     * @return array
+     */
     private function generateSubtractionFormula() {
       return array($this->num1.' - '.$this->num2.' = ' => $this->num1 - $this->num2);
     }
+    /**
+     * private
+     * generateUnsettledFormula
+     * 
+     * 足し算か引き算の式を作成
+     * 
+     * @return array
+     */
     private function generateUnsettledFormula() {
       return rand(0 ,1) ? $this->generateAdditionFormula() : $this->generateSubtractionFormula();;
     }
 
+    /**
+     * private
+     * rand
+     * 
+     * 0から$maxまでの数字をnum1とnum2に格納
+     */
     private function rand() {
       $this->num1 = rand(0, $this->max);
       $this->num2 = rand(0, $this->max);

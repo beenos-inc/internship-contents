@@ -9,12 +9,16 @@
   require('./functions/funcExercise.php');
 
   session_start();
+  // sessionにエラーメッセージが存在するとき
+  // エラーメッセージを表示
   if (isset($_SESSION['errorMessage'])) {
     foreach ($_SESSION as $key => $value) {
       echo $value . "\n";
     }
     unset($_SESSION['errorMessage']);
   } else {
+    // sessionにエラーメッセージが存在しないとき
+    // 計算問題を作成する
     $digit = sanitize($_POST['digit']);
     $calculation = sanitize($_POST['calculation']);
   

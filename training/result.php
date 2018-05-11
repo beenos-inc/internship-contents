@@ -5,6 +5,9 @@
   $questions = sanitize($_POST['questions']);
   $answers = sanitize($_POST['answers']);
 
+  // 入力された解答に誤りがある場合
+  // sessionにエラーメッセージを入れて
+  // exercise.phpにリダイレクトする
   session_start();
   if (count($responses) != count($questions)) {
     $_SESSION['errorMessage'] = '全ての項目に解答していません';
