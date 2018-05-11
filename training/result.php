@@ -1,5 +1,5 @@
 <?php
-  require('funcResult.php');
+  require('./functions/funcResult.php');
 
   $responses = sanitize($_POST['responses']);
   $questions = sanitize($_POST['questions']);

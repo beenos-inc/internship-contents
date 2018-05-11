@@ -6,7 +6,7 @@
   const SUBTRACTION_FORMULA = 2;
   const UNSETTELED_FORMULA = 3;
 
-  require('funcExercise.php');
+  require('./functions/funcExercise.php');
 
   session_start();
   if (isset($_SESSION['errorMessage'])) {
