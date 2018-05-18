@@ -39,7 +39,7 @@
      */
     public function generateFormula() {
       $formula = [];
-      for ($i=0; $i < NUMBER_OF_QUESTION; $i++) { 
+      for ($i = 0; $i < NUMBER_OF_QUESTION; $i++) { 
         $formula += $this->decideFormulaBranch();
       }
       return $formula;

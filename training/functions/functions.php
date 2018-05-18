@@ -71,7 +71,7 @@
    * @return array $comments
    */
   function checkTheAnswer($responses, $answers) {
-    for ($i=0; $i < NUMBER_OF_QUESTION; $i++) {
+    for ($i = 0; $i < NUMBER_OF_QUESTION; $i++) {
       if ($responses[$i] == $answers[$i]) {
         $comments[] = '...正解';
       } else {

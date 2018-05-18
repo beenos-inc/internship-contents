@@ -6,7 +6,7 @@
   $answers = sanitize($_POST['answers']);
 
   errorCheck($questions, $responses);
-  
+
   $comments = checkTheAnswer($responses, $answers);
   
 ?>
@@ -22,7 +22,7 @@
 <body>
   <p>計算練習結果</p>
   <?php
-    for ($i=0; $i < NUMBER_OF_QUESTION; $i++) {
+    for ($i = 0; $i < NUMBER_OF_QUESTION; $i++) {
       $j = $i + 1;
       echo $j.'問目 '.$questions[$i].' '.$responses[$i].' '.$comments[$i].'<br>';
     }
