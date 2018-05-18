@@ -56,7 +56,7 @@
      * @return array
      */
     private function decideFormulaBranch() {
-      $this->rand();
+      $this->insertRandValue();
       switch ($this->output) {
         case 1:
             return $this->generateAdditionFormula();
@@ -113,7 +113,7 @@
      * 
      * 0から$maxまでの数字をnum1とnum2に格納
      */
-    private function rand() {
+    private function insertRandValue() {
       $this->num1 = rand(0, $this->max);
       $this->num2 = rand(0, $this->max);
     }
