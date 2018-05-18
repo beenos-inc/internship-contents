@@ -33,12 +33,14 @@
     if (count($responses) != count($questions)) {
       $_SESSION['errorMessage'] = '全ての項目に解答していません';
       header('Location: exercise.php');
+      exit;
     }
 
     foreach ($responses as $response) {
       if(!is_numeric($response)) {
         $_SESSION['errorMessage'] = '数値で解答してください。';
         header('Location: exercise.php');
+        exit;
       }
     }
   }
