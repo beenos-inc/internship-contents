@@ -12,6 +12,7 @@
    * 
    * @author 河崎鷹大
    * 
+   * 計算問題を作成するクラス
    */
   class funcExercise {
     private $max;
