@@ -12,11 +12,11 @@
   function sanitize($target) {
     if (is_array($target)) {
       foreach ($target as $value) {
-        $array[] = trim(htmlspecialchars($value, ENT_QUOTES));
+        $array[] = htmlspecialchars(trim($value), ENT_QUOTES);
       }
       return $array;
     } else {
-      return trim(htmlspecialchars($target, ENT_QUOTES));
+      return htmlspecialchars(trim($target), ENT_QUOTES);
     }
   }
 
