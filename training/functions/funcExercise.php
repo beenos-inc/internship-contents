@@ -1,10 +1,4 @@
 <?php
-  const RANGE_OF_DIGIT_9 = 9;
-  const RANGE_OF_DIGIT_99 = 99;
-
-  const ADDITION_FORMULA = 1;
-  const SUBTRACTION_FORMULA = 2;
-  const UNSETTELED_FORMULA = 3;
 
   require('functions.php');
 
@@ -15,18 +9,24 @@
    * 計算問題を作成するクラス
    */
   class funcExercise {
+    const RANGE_OF_DIGIT_9 = 9;
+    const RANGE_OF_DIGIT_99 = 99;
+    const ADDITION_FORMULA = 1;
+    const SUBTRACTION_FORMULA = 2;
+    const UNSETTELED_FORMULA = 3;
+
     private $max;
     private $output;
     private $num1 = 0;
     private $num2 = 0;
 
     function __construct($digit, $calculation) {
-      $this->max = ($digit == 1) ? RANGE_OF_DIGIT_9 : RANGE_OF_DIGIT_99;
+      $this->max = ($digit == 1) ? self::RANGE_OF_DIGIT_9 : self::RANGE_OF_DIGIT_99;
 
       if (count($calculation) == 2) {
-        $this->output = UNSETTELED_FORMULA;
+        $this->output = self::UNSETTELED_FORMULA;
       }  else {
-        $this->output = empty($calculation) ?  ADDITION_FORMULA : $calculation[0];
+        $this->output = empty($calculation) ?  self::ADDITION_FORMULA : $calculation[0];
       }
     }
 
