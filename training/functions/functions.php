@@ -48,7 +48,8 @@
   /**
    * showErrorMessage
    * 
-   * sessionにエラーメッセージがある場合表示する
+   * sessionにエラーメッセージがある場合、
+   * メッセージを表示し、exitする
    * 
    * @return bool
    */
@@ -57,9 +58,8 @@
     if (isset($_SESSION['errorMessage'])) {
       echo $_SESSION['errorMessage'];
       unset($_SESSION['errorMessage']);
-      return true;
+      exit;
     } 
-    return false;
   }
 
   /**

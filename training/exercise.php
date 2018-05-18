@@ -1,14 +1,13 @@
 <?php
 
   require('./functions/funcExercise.php');
-  
+
   $digit = sanitize($_POST['digit']);
   $calculation = sanitize($_POST['calculation']);
 
   // sessionにエラーメッセージが存在する場合は
-  // エラーメッセージを表示し、returnする
+  // エラーメッセージを表示し、exitする
   $bool = showErrorMessage();
-  if ($bool) return;
 
   // sessionにエラーメッセージが存在しない場合、
   // 計算式を表示する
