@@ -4,6 +4,7 @@ require "./transport/air-plan.rb"
 require "./transport/bus-plan.rb"
 require "./travel-price.rb"
 
+# 交通費を求めるメソッド
 def transport_price
   # 電車代を求める
   train_plan = TrainPlan.new(12500, 20)
@@ -25,8 +26,8 @@ def transport_price
   air_plan.get_price + bus_plan.get_price + train_plan.get_price
 end
 
+# ホテル代を求めるメソッド
 def hotel_price
-  # ホテル代を求める
   hotel_plan = HotelPlan.new(5000)
   hotel_plan.is_smoker
   hotel_plan.select_hotel_rank("gold")
@@ -36,8 +37,8 @@ def hotel_price
   hotel_plan.get_hotel_price
 end
 
+# 旅費合計を求めるメソッド
 def total_price
-  # 旅費合計を求める
   travel_price = TravelPrice.new(transport_price, hotel_price)
   travel_price.get_total_price
 end
