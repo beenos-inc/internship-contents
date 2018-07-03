@@ -39,7 +39,8 @@ class HotelPlan
   def has_dinner
     @hotel_price += MEAL_ADD_FEES["dinner"]
   end
-
+ 
+  # 戻り値用メソッド
   def get_hotel_price
     @hotel_price
   end

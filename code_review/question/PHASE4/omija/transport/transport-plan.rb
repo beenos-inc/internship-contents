@@ -6,6 +6,7 @@ class TransportPlan
     @student_discount_rate = student_discount_rate
   end
 
+  # 予約日設定用メソッド
   def set_use_date(year, month, day)
     if Date.valid_date?(year, month, day)
         date = Date.new(year, month, day)
@@ -26,6 +27,7 @@ class TransportPlan
     result_subtraction
   end  
 
+  # 学生割引計算用メソッド
   def use_student_discount
     if @student_discount_rate > 100 || @student_discount_rate < 0
       puts "学割の値は0より大きく100未満の値を入れてください"
@@ -34,6 +36,7 @@ class TransportPlan
      @price = (@price / @student_discount_rate).to_i
   end
   
+  # 戻り値用メソッド
   def get_price
     @price
   end
