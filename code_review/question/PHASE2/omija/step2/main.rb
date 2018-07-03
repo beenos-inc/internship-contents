@@ -13,7 +13,7 @@ hotel_plan.is_smoker
 hotel_plan.select_hotel_rank("gold")
 hotel_plan.has_breakfast
 hotel_plan.has_dinner
-puts "ホテル代: #{train_plan.get_round_trip_price}円"
+puts "ホテル代: #{hotel_plan.get_hotel_price}円"
 
 # 旅費合計を求める
 travel_price = TravelPrice.new(hotel_plan.get_hotel_price, train_plan.get_round_trip_price)
