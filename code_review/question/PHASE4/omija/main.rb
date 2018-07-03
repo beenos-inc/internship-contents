@@ -10,8 +10,8 @@ def transport_price
   train_plan = TrainPlan.new(12500, 20)
   train_plan.use_student_discount
   train_plan.use_green_car
-  number = train_plan.set_use_date(2018, 7, 6)
-  train_plan.get_early_bird_discount_rate(number)
+  differences_day = train_plan.set_use_date(2018, 7, 6)
+  train_plan.get_early_bird_discount_rate(differences_day)
 
   # 飛行機代を求める
   air_plan = AirPlan.new(100, 30)
