@@ -6,7 +6,11 @@ require "./travel-price.rb"
 
 def transportation_price
   # 電車代を求める
+<<<<<<< HEAD
   train_plan = TrainPlan.new(100, 20)
+=======
+  train_plan = TrainPlan.new(12500, 20)
+>>>>>>> d01655304bc6937b9d84afc2718de2af76d5f8d9
   train_plan.use_student_discount
   train_plan.use_green_car
 

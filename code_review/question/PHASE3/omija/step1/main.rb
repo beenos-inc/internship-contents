@@ -5,18 +5,30 @@ require "./bus-plan.rb"
 require "./travel-price.rb"
 
 # 電車代を求める
+<<<<<<< HEAD
 train_plan = TrainPlan.new(100)
+=======
+train_plan = TrainPlan.new(12500)
+>>>>>>> d01655304bc6937b9d84afc2718de2af76d5f8d9
 train_plan.use_student_discount(20)
 train_plan.use_green_car
 puts "電車代： #{train_plan.get_train_price}円"
 
 # 飛行機代を求める
+<<<<<<< HEAD
 air_plan = AirPlan.new(100)
+=======
+air_plan = AirPlan.new(10)
+>>>>>>> d01655304bc6937b9d84afc2718de2af76d5f8d9
 air_plan.use_student_discount(30)
 puts "飛行機代： #{air_plan.get_air_price}円"
 
 # バス代を求める
+<<<<<<< HEAD
 bus_plan = BusPlan.new(100)
+=======
+bus_plan = BusPlan.new(10)
+>>>>>>> d01655304bc6937b9d84afc2718de2af76d5f8d9
 bus_plan.use_student_discount(10)
 puts "バス代： #{bus_plan.get_bus_price}円"
 
