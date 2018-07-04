@@ -1,5 +1,6 @@
 class TrainPlan
     STUDENT_DISCOUNT_COEFFICIENT = 0.2
+    
     def initialize(train_price)
         @round_trip_price = train_price
     end
