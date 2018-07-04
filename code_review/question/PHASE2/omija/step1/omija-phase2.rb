@@ -8,12 +8,12 @@ class TrainPlan
 
     # 学割料金を算出するメソッド
     def use_student_discount
-        @single_trip_price = (@single_trip_price * (1 - STUDENT_DISCOUNT_COEFFICIENT)).to_i
+        @stuent_discount_cost = (@single_trip_price * (1 - STUDENT_DISCOUNT_COEFFICIENT)).to_i
     end
 
     # 往復代を算出するメソッド
     def round_trip_price 
-        @single_trip_price
+        @round_trip_price = (@single_trip_price - @stuent_discount_cost) * 2
     end
 end
 
@@ -35,13 +35,13 @@ class HotelPlan
         "dinner" => 800,
     }
 
-    def initialize(price)
-        @hotel_price = price
+    def initialize(day_default_price)
+        @day_default_price = day_default_price
     end
 
     # 喫煙可能部屋を利用時のコストを取得するメソッド
     def is_smoker
-        @hotel_price += SMOKER_COST
+        @smoker_cost = SMOKER_COST
     end
 
     # ホテルランクのコストを取得するメソッド
@@ -50,23 +50,23 @@ class HotelPlan
             p "正しいランクを選択してください"
             exit(0) 
         else
-            @hotel_price += HOTEL_ROOM_RANK_ADD_FEES[hotel_room_rank]
+            @room_rank_cost = HOTEL_ROOM_RANK_ADD_FEES[hotel_room_rank]
         end
     end
 
     # 朝食利用時のコストを取得するメソッド
     def has_breakfast
-        @hotel_price += MEAL_ADD_FEES["breakfast"]
+        @breakfast_cost = MEAL_ADD_FEES["breakfast"]
     end
  
     # 夕食利用時のコストを取得するメソッド
     def has_dinner
-        @hotel_price += MEAL_ADD_FEES["dinner"]
+        @dinaner_cost = MEAL_ADD_FEES["dinner"]
     end
 
     # ホテル料金合計を算出するメソッド
     def hotel_price
-        @hotel_price
+        @hotel_price = (@day_default_price + @smoker_cost + @room_rank_cost + @breakfast_cost + @dinaner_cost)
     end
 end
 
@@ -75,7 +75,7 @@ hotel_plan.is_smoker
 hotel_plan.select_hotel_rank("gold")
 hotel_plan.has_breakfast
 hotel_plan.has_dinner
-puts "ホテル代: #{hotel_plan.round_trip_price}円"
+puts "ホテル代: #{hotel_plan.hotel_price}円"
 
 # 旅費合計を算出するクラス
 class TravelPrice
@@ -87,7 +87,7 @@ class TravelPrice
     # 旅費合計を算出するメソッド
     def total_price
         @total_price = @hotel_price + @round_trip_price
-        "旅費合計: #{total_price}円"
+        "旅費合計: #{@total_price}円"
     end
 end
 
