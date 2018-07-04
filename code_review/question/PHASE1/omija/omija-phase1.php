@@ -11,9 +11,9 @@ const discount_rate = 0.2;  //PHASE.1 step.1 学割の変数名を設定する
 
 // 学割電車運賃を計算
 $single_fare_at_discount = floor(single_fare * (1 - discount_rate));  //PHASE.1 step.1 学割のきいた片道代の変数名を設定する
-$return_fare_at_discount = $single_fare_at_discount * 2;  //PHASE.1 step.1 往復代を求める処理を記述し、往復台の変数名を設定する
+$round_trip_fare_at_discount = $single_fare_at_discount * 2;  //PHASE.1 step.1 往復代を求める処理を記述し、往復台の変数名を設定する
 
-echo "交通費： " . $return_fare_at_discount . "円";
+echo "交通費： " . $round_trip_fare_at_discount. "円";
 echo "\n";
 
 /*
@@ -36,5 +36,5 @@ echo "\n";
 /**
  * 旅費合計を求める
  **/
-$total_travel_fee = $return_fare_at_discount + $hotel_fee_include_meal;
+$total_travel_fee = $round_trip_fare_at_discount + $hotel_fee_include_meal;
 echo "旅費合計： " . $total_travel_fee . "円";
