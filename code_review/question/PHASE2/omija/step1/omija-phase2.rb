@@ -2,15 +2,15 @@ class TrainPlan
     STUDENT_DISCOUNT_COEFFICIENT = 0.2
     
     def initialize(single_trip_price)
-        @round_trip_price = single_trip_price
+        @single_trip_price = single_trip_price
     end
 
     def use_student_discount
-        @round_trip_price = (@round_trip_price * (1 - STUDENT_DISCOUNT_COEFFICIENT)).to_i # PHASE.2 step.1 学割料金を求めるメソッドを完成させる
+        @single_trip_price = (@single_trip_price * (1 - STUDENT_DISCOUNT_COEFFICIENT)).to_i # PHASE.2 step.1 学割料金を求めるメソッドを完成させる
     end
 
     def get_round_trip_price # PHASE.2 step.1 往復代を求めるメソッドを追加する
-        @round_trip_price
+        @single_trip_price
     end
 end
 
@@ -75,12 +75,12 @@ puts "ホテル代: #{train_plan.get_round_trip_price}円"
 class TravelPrice
     def initialize(hotel_price, round_trip_price)
         @hotel_price = hotel_price
-        @round_trip_price = round_trip_price
+        @single_trip_price = round_trip_price
     end
 
     def get_total_price
         # PHASE.2 step.1 配列の合計金額を求める処理を完成させる
-        total_price = @hotel_price + @round_trip_price
+        total_price = @hotel_price + @single_trip_price
         "旅費合計: #{total_price}円"
     end
 end
