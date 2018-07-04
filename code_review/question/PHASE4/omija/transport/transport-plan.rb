@@ -10,21 +10,21 @@ class TransportPlan
   def set_use_date(year, month, day)
     if Date.valid_date?(year, month, day)
         date = Date.new(year, month, day)
-        msg = "#{date.strftime("%Y年%m月%d日")}に予約日を設定しました"
-        result_subtraction = (date - Date.today).to_i
-      if result_subtraction > 0
-        puts msg += "\n#{result_subtraction}日前の予約です"
-      elsif result_subtraction == 0
-        puts msg += "\n当日の予約です"
+        reserved_result_msg = "#{date.strftime("%Y年%m月%d日")}に予約日を設定しました"
+        days_after_today = (date - Date.today).to_i
+      if days_after_today > 0
+        puts reserved_result_msg += "\n#{days_after_today}日前の予約です"
+      elsif days_after_today == 0
+        puts reserved_result_msg += "\n当日の予約です"
       else
         date = Date.today        
-        puts msg = "日付の設定が間違っています"
+        puts reserved_result_msg = "日付の設定が間違っています"
       end
     else
       date = Date.today        
-      puts msg = "日付の設定が間違っています"
+      puts reserved_result_msg = "日付の設定が間違っています"
     end
-    result_subtraction
+    days_after_today
   end  
 
   # 学生割引計算用メソッド
