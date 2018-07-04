@@ -9,20 +9,20 @@ class TransportPlan
   # 予約日設定用メソッド
   def set_use_date(year, month, day)
     if Date.valid_date?(year, month, day)
-        date = Date.new(year, month, day)
-        reserved_result_msg = "#{date.strftime("%Y年%m月%d日")}に予約日を設定しました"
-        days_after_today = (date - Date.today).to_i
+        reservation_day = Date.new(year, month, day)
+        reserved_result_msg = "#{reservation_day.strftime("%Y年%m月%d日")}に予約日を設定しました"
+        days_after_today = (reservation_day - Date.today).to_i
       if days_after_today > 0
         puts reserved_result_msg += "\n#{days_after_today}日前の予約です"
       elsif days_after_today == 0
         puts reserved_result_msg += "\n当日の予約です"
       else
-        date = Date.today        
-        puts reserved_result_msg = "日付の設定が間違っています"
+        reservation_day = Date.today        
+        puts "日付の設定が間違っています"
       end
     else
-      date = Date.today        
-      puts reserved_result_msg = "日付の設定が間違っています"
+      reservation_day = Date.today        
+      puts = "日付の設定が間違っています"
     end
     days_after_today
   end  
