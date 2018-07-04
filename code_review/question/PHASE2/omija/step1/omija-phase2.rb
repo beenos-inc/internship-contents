@@ -1,8 +1,8 @@
 class TrainPlan
     STUDENT_DISCOUNT_COEFFICIENT = 0.2
     
-    def initialize(train_price)
-        @round_trip_price = train_price
+    def initialize(single_trip_price)
+        @round_trip_price = single_trip_price
     end
 
     def use_student_discount
