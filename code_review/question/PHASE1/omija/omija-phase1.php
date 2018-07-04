@@ -25,10 +25,10 @@ const hotel_fee = 5000;
 // 朝食代
 const breakfast_fee = 500;
 // 夕食代
-const dinnar_fee = 800;
+const dinner_fee = 800;
 
 // ホテル代を計算
-$hotel_fee_include_meal  = hotel_fee + breakfast_fee + dinnar_fee;
+$hotel_fee_include_meal  = hotel_fee + breakfast_fee + dinner_fee;
 
 echo "ホテル代： " . $hotel_fee_include_meal . "円";
 echo "\n";
