@@ -10,8 +10,8 @@ def transport_price
   train_plan = TrainPlan.new(12500, 20)
   train_plan.use_student_discount
   train_plan.use_green_car
-  differences_day = train_plan.set_use_date(2018, 7, 6)
-  train_plan.get_early_bird_discount_rate(differences_day)
+  days_after_today = train_plan.set_use_date(2018, 7, 6)
+  train_plan.get_early_bird_discount_rate(days_after_today)
 
   # 飛行機代を求める
   air_plan = AirPlan.new(100, 30)
@@ -38,9 +38,9 @@ def hotel_price
 end
 
 # 旅費合計を求めるメソッド
-def total_price
+def total_travel_price
   travel_price = TravelPrice.new(transport_price, hotel_price)
-  travel_price.get_total_price
+  travel_price.get_total_travel_price
 end
 
-puts "旅費合計:#{total_price}円"
+puts "旅費合計:#{total_travel_price}円"
