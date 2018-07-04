@@ -12,14 +12,14 @@ class TrainPlan
     end
 
     # 往復代を算出するメソッド
-    def get_round_trip_price 
+    def round_trip_price 
         @single_trip_price
     end
 end
 
 train_plan = TrainPlan.new(12500)
 train_plan.use_student_discount
-puts "交通費: #{train_plan.get_round_trip_price}円"    
+puts "交通費: #{train_plan.round_trip_price}円"    
 
 # ホテル料金を算出するクラス
 class HotelPlan
@@ -65,7 +65,7 @@ class HotelPlan
     end
 
     # ホテル料金合計を算出するメソッド
-    def get_hotel_price
+    def hotel_price
         @hotel_price
     end
 end
@@ -75,21 +75,21 @@ hotel_plan.is_smoker
 hotel_plan.select_hotel_rank("gold")
 hotel_plan.has_breakfast
 hotel_plan.has_dinner
-puts "ホテル代: #{train_plan.get_round_trip_price}円"
+puts "ホテル代: #{hotel_plan.round_trip_price}円"
 
 # 旅費合計を算出するクラス
 class TravelPrice
     def initialize(hotel_price, round_trip_price)
         @hotel_price = hotel_price
-        @single_trip_price = round_trip_price
+        @round_trip_price = round_trip_price
     end
 
     # 旅費合計を算出するメソッド
-    def get_total_price
-        total_price = @hotel_price + @single_trip_price
+    def total_price
+        @total_price = @hotel_price + @round_trip_price
         "旅費合計: #{total_price}円"
     end
 end
 
-travel_price = TravelPrice.new(hotel_plan.get_hotel_price, train_plan.get_round_trip_price)
-puts travel_price.get_total_price
+travel_price = TravelPrice.new(hotel_plan.hotel_price, train_plan.round_trip_price)
+puts travel_price.total_price
