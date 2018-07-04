@@ -7,16 +7,16 @@ require "./travel-price.rb"
 # 交通費を求めるメソッド
 def transport_price
   # 電車代を求める
-  train_plan = TrainPlan.new(12500, 20)
+  train_plan = TrainPlan.new(12_500, 20)
   train_plan.use_student_discount
   train_plan.use_green_car
-  days_after_today = train_plan.set_use_date(2018, 7, 6)
+  days_after_today = train_plan.set_use_date(2018, 12, 20)
   train_plan.get_early_bird_discount_rate(days_after_today)
 
   # 飛行機代を求める
   air_plan = AirPlan.new(100, 30)
   air_plan.use_student_discount
-
+  
   # バス代を求める
   bus_plan = BusPlan.new(100, 10)
   bus_plan.use_student_discount
