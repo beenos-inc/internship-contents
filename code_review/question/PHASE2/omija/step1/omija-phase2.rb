@@ -8,7 +8,7 @@ class TrainPlan
 
     # 学割料金を算出するメソッド
     def use_student_discount
-        @stuent_discount_cost = (@single_trip_price * (1 - STUDENT_DISCOUNT_COEFFICIENT)).to_i
+        @stuent_discount_cost = (@single_trip_price * STUDENT_DISCOUNT_COEFFICIENT).to_i
     end
 
     # 往復代を算出するメソッド
