@@ -44,12 +44,12 @@ class HotelPlan
 
   # ホテルランクのコストを取得するメソッド
   def select_hotel_rank
-    if HOTEL_ROOM_RANK_ADD_FEES.fetch(@hotel_room_rank, nil).nil?
+    if !HOTEL_ROOM_RANK_ADD_FEES.include?(@hotel_room_rank)
       p "正しいランクを選択してください"
       exit(0) 
-    else
-      HOTEL_ROOM_RANK_ADD_FEES[@hotel_room_rank]
     end
+
+    HOTEL_ROOM_RANK_ADD_FEES[@hotel_room_rank]
   end
 
   # 喫煙可能部屋を利用時のコストを取得するメソッド
