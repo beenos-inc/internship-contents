@@ -22,7 +22,7 @@ end
 
 # ホテル料金を算出するクラス
 class HotelPlan
-  SMOKER_COST = 1000
+  SMOKING_ROOM_FEE = 1000
   HOTEL_ROOM_RANK_ADD_FEES = {
     normal: 0,
     bronze: 3000,
@@ -34,10 +34,10 @@ class HotelPlan
     dinner: 800,
   }
 
-  def initialize(day_default_price, hotel_room_rank, is_smoker, has_breakfast, has_dinner)
+  def initialize(day_default_price, hotel_room_rank, is_smoking_room, has_breakfast, has_dinner)
     @day_default_price = day_default_price
     @hotel_room_rank = hotel_room_rank
-    @is_smoker = is_smoker
+    @is_smoking_room = is_smoking_room
     @has_breakfast = has_breakfast
     @has_dinner = has_dinner
   end
@@ -53,27 +53,27 @@ class HotelPlan
   end
 
   # 喫煙可能部屋を利用時のコストを取得するメソッド
-  def smoker_cost
-    SMOKER_COST
+  def smoking_room_fee
+    SMOKING_ROOM_FEE
   end
 
   # 朝食利用時のコストを取得するメソッド
-  def breakfast_cost
-    MEAL_ADD_FEES["breakfast"]
+  def breakfast_fee
+    MEAL_ADD_FEES[:breakfast]
   end
 
   # 夕食利用時のコストを取得するメソッド
-  def dinner_cost
-    MEAL_ADD_FEES["dinner"]
+  def dinner_fee
+    MEAL_ADD_FEES[:dinner]
   end
 
   # ホテル料金合計を算出するメソッド
   def hotel_price
     option_cost = 0
     option_cost += select_hotel_rank
-    option_cost += smoker_cost if @is_smoker
-    option_cost += breakfast_cost if @has_breakfast
-    option_cost += dinner_cost if @has_dinner
+    option_cost += smoking_room_fee if @is_smoking_room
+    option_cost += breakfast_fee if @has_breakfast
+    option_cost += dinner_fee if @has_dinner
     @day_default_price + option_cost
   end
 end
@@ -93,7 +93,7 @@ class TravelPrice
   end
 end
 
-train_plan = TrainPlan.new("a", 0.2)
-hotel_plan = HotelPlan.new(5000, "gold", true, true, true)
+train_plan = TrainPlan.new(12500, 0.2)
+hotel_plan = HotelPlan.new(5000, :gold, true, true, true)
 travel_price = TravelPrice.new(train_plan.round_trip_price, hotel_plan.hotel_price)
 travel_price.total_price
