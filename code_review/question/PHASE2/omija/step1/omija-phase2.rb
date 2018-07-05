@@ -6,16 +6,15 @@ class TrainPlan
   end
 
   # 学割料金を算出するメソッド
-  def use_student_discount
+  def student_discount
     (@single_trip_price * @student_discount_rate).to_i
   end
 
   # 往復代を算出するメソッド
   def round_trip_price
-    (@single_trip_price - use_student_discount) * 2
+    (@single_trip_price - student_discount) * 2
   end
 end
-
 
 # ホテル料金を算出するクラス
 class HotelPlan
