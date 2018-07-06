@@ -28,19 +28,19 @@ class HotelPlan
 
   # ホテルランクのコストを取得するメソッド
   def hotel_room_rank_fee
-    select_hotel_room_rank_fee = {
+    price_list = {
       normal: 0,
       bronze: 3000,
       silver: 5000,
       gold:   8000,
     }
 
-    if !select_hotel_room_rank_fee.include?(@hotel_room_rank)
+    if !price_list.include?(@hotel_room_rank)
       p "正しいランクを選択してください"
-      exit(0) 
+      exit(0)
     end
 
-    select_hotel_room_rank_fee[@hotel_room_rank]
+    price_list[@hotel_room_rank]
   end
 
   # 喫煙可能部屋を利用時のコストを取得するメソッド
@@ -60,7 +60,12 @@ class HotelPlan
 
   # ホテル料金合計を算出するメソッド
   def hotel_price
-    @day_default_price + hotel_room_rank_fee + smoking_room_fee + breakfast_fee + dinner_fee
+    @day_default_price + (
+      hotel_room_rank_fee +
+      smoking_room_fee +
+      breakfast_fee +
+      dinner_fee
+    )
   end
 end
 
