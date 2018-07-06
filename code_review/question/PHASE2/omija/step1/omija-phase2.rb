@@ -18,18 +18,6 @@ end
 
 # ホテル料金を算出するクラス
 class HotelPlan
-  SMOKING_ROOM_FEE = 1000
-  HOTEL_ROOM_RANK_ADD_FEES = {
-    normal: 0,
-    bronze: 3000,
-    silver:  5000,
-    gold: 8000,
-  }
-  MEAL_ADD_FEES = {
-    breakfast: 500,
-    dinner: 800,
-  }
-
   def initialize(day_default_price, hotel_room_rank, is_smoking_room, has_breakfast, has_dinner)
     @day_default_price = day_default_price
     @hotel_room_rank = hotel_room_rank
@@ -39,38 +27,40 @@ class HotelPlan
   end
 
   # ホテルランクのコストを取得するメソッド
-  def select_hotel_rank
-    if !HOTEL_ROOM_RANK_ADD_FEES.include?(@hotel_room_rank)
+  def hotel_room_rank_fee
+    select_hotel_room_rank_fee = {
+      normal: 0,
+      bronze: 3000,
+      silver: 5000,
+      gold:   8000,
+    }
+
+    if !select_hotel_room_rank_fee.include?(@hotel_room_rank)
       p "正しいランクを選択してください"
       exit(0) 
     end
 
-    HOTEL_ROOM_RANK_ADD_FEES[@hotel_room_rank]
+    select_hotel_room_rank_fee[@hotel_room_rank]
   end
 
   # 喫煙可能部屋を利用時のコストを取得するメソッド
   def smoking_room_fee
-    SMOKING_ROOM_FEE
+    1000 if @is_smoking_room
   end
 
   # 朝食利用時のコストを取得するメソッド
   def breakfast_fee
-    MEAL_ADD_FEES[:breakfast]
+    500 if @has_breakfast
   end
 
   # 夕食利用時のコストを取得するメソッド
   def dinner_fee
-    MEAL_ADD_FEES[:dinner]
+    800 if @has_dinner
   end
 
   # ホテル料金合計を算出するメソッド
   def hotel_price
-    option_cost = 0
-    option_cost += select_hotel_rank
-    option_cost += smoking_room_fee if @is_smoking_room
-    option_cost += breakfast_fee if @has_breakfast
-    option_cost += dinner_fee if @has_dinner
-    @day_default_price + option_cost
+    @day_default_price + hotel_room_rank_fee + smoking_room_fee + breakfast_fee + dinner_fee
   end
 end
 
