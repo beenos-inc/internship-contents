@@ -1,14 +1,17 @@
+# 電車料金を算出するクラス
 class TrainPlan
-  STUDENT_DISCOUNT_COEFFICIENT = 0.2
-  def initialize(train_price)
-      @round_trip_price = train_price
+    def initialize(single_trip_price, student_discount_rate)
+      @single_trip_price = single_trip_price
+      @student_discount_rate = student_discount_rate
+    end
+  
+    # 学割料金を算出するメソッド
+    def student_discount
+      (@single_trip_price * @student_discount_rate).to_i
+    end
+  
+    # 往復代を算出するメソッド
+    def round_trip_price
+      (@single_trip_price - student_discount) * 2
+    end
   end
-
-  def use_student_discount
-      @round_trip_price = (@round_trip_price * (1 - STUDENT_DISCOUNT_COEFFICIENT)).to_i # PHASE.2 step.1 学割料金を求めるメソッドを完成させる
-  end
-
-  def get_round_trip_price # PHASE.2 step.1 往復代を求めるメソッドを追加する
-      @round_trip_price
-  end
-end

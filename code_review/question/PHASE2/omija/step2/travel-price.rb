@@ -1,12 +1,14 @@
+# 旅費合計を算出するクラス
 class TravelPrice
-  def initialize(hotel_price, round_trip_price)
-      @hotel_price = hotel_price
+    def initialize(round_trip_price, hotel_price)
       @round_trip_price = round_trip_price
+      @hotel_price = hotel_price
+    end
+  
+    # 旅費合計を算出するメソッド
+    def total_price
+      puts "交通費: #{@round_trip_price}円"
+      puts "ホテル代: #{@hotel_price}円"
+      puts "旅費合計: #{@round_trip_price + @hotel_price}円"
+    end
   end
-
-  def get_total_price
-      # PHASE.2 step.1 配列の合計金額を求める処理を完成させる
-      total_price = @hotel_price + @round_trip_price
-      "旅費合計: #{total_price}円"
-  end
-end

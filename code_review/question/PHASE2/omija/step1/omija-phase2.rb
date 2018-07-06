@@ -34,14 +34,9 @@ class HotelPlan
 
   # ホテルランクのコストを取得するメソッド
   def hotel_room_rank_fee
-    price_list = {
-      normal: 0,
-      bronze: 3000,
-      silver: 5000,
-      gold:   8000,
-    }
+    price_list = { normal: 0, bronze: 3000, silver: 5000, gold: 8000 }
 
-    if !price_list.include?(@hotel_room_rank)
+    unless price_list.include?(@hotel_room_rank)
       p "正しいランクを選択してください"
       exit(0)
     end
@@ -91,7 +86,7 @@ class TravelPrice
   end
 end
 
-train_plan = TrainPlan.new(12500, 0.2)
+train_plan = TrainPlan.new(12_500, 0.2)
 hotel_plan = HotelPlan.new(5000, :gold, true, true, true)
 travel_price = TravelPrice.new(train_plan.round_trip_price, hotel_plan.hotel_price)
 travel_price.total_price
