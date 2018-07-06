@@ -5,10 +5,6 @@ class TrainPlan
     @student_discount_rate = student_discount_rate
   end
 
-  def checked_argumet_type
-    p @single_trip_price.kind_of?
-  end
-
   # 学割料金を算出するメソッド
   def student_discount
     (@single_trip_price * @student_discount_rate).to_i
