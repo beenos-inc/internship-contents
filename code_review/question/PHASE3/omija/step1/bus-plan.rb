@@ -15,7 +15,7 @@ class BusPlan
     (@single_trip_price * @student_discount_rate).to_i
   end
 
-  # 早期予約割引料金を算出するメソッド
+  # クーポン割引料金を算出するメソッド
   def coupon_discount_fee
     coupon_discount_rate = 0.1
     (@single_trip_price * coupon_discount_rate).to_i if @use_coupon_discount
