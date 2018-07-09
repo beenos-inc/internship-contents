@@ -20,10 +20,10 @@ end
 class HotelPlan
   def initialize(
     day_default_price,
-    hotel_room_rank = :normal,
-    is_smoking_room = false,
-    has_breakfast = false,
-    has_dinner = false
+    hotel_room_rank,
+    is_smoking_room,
+    has_breakfast,
+    has_dinner
   )
     @day_default_price = day_default_price
     @hotel_room_rank = hotel_room_rank
