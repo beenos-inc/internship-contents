@@ -1,6 +1,11 @@
 # 旅費合計を算出するクラス
 class TravelPrice
-  def initialize(train_round_trip_price, airplane_round_trip_price, bus_round_trip_price, hotel_price)
+  def initialize(
+    train_round_trip_price,
+    airplane_round_trip_price,
+    bus_round_trip_price,
+    hotel_price
+  )
     @train_round_trip_price = train_round_trip_price
     @airplane_round_trip_price = airplane_round_trip_price
     @bus_round_trip_price = bus_round_trip_price

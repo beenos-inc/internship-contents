@@ -24,4 +24,5 @@ travel_price = TravelPrice.new(
   hotel_plan.hotel_price
 )
 
+# 旅費金額出力
 travel_price.total_price

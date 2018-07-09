@@ -2,10 +2,10 @@
 class HotelPlan
   def initialize(
     day_default_price,
-    hotel_room_rank = :normal,
-    is_smoking_room = false,
-    has_breakfast = false,
-    has_dinner = false
+    hotel_room_rank,
+    is_smoking_room,
+    has_breakfast,
+    has_dinner
   )
     @day_default_price = day_default_price
     @hotel_room_rank = hotel_room_rank
@@ -16,7 +16,12 @@ class HotelPlan
 
   # ホテルランクのコストを取得するメソッド
   def hotel_room_rank_fee
-    price_list = { normal: 0, bronze: 3000, silver: 5000, gold: 8000 }
+    price_list = {
+      normal: 0,
+      bronze: 3000,
+      silver: 5000,
+      gold: 8000
+    }
 
     unless price_list.include?(@hotel_room_rank)
       p "正しいランクを選択してください"

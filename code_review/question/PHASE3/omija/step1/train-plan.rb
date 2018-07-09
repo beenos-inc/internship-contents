@@ -1,6 +1,6 @@
 # 電車料金を算出するクラス
 class TrainPlan
-  def initialize(single_trip_price, student_discount_rate, is_green_car = false)
+  def initialize(single_trip_price, student_discount_rate, is_green_car)
     @single_trip_price = single_trip_price
     @student_discount_rate = student_discount_rate
     @is_green_car = is_green_car

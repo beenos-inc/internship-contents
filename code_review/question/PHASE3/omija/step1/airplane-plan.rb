@@ -3,7 +3,7 @@ class AirplanePlan
   def initialize(
     single_trip_price,
     student_discount_rate,
-    use_early_reservation = false
+    use_early_reservation
   )
     @single_trip_price = single_trip_price
     @student_discount_rate = student_discount_rate

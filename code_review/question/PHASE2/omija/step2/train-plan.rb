@@ -4,6 +4,7 @@ class TrainPlan
     @single_trip_price = single_trip_price
     @student_discount_rate = student_discount_rate
   end
+
   # 学割料金を算出するメソッド
   def student_discount
     (@single_trip_price * @student_discount_rate).to_i
