@@ -13,8 +13,8 @@ class BusPlan
 
   # クーポン割引料金を算出するメソッド
   def coupon_discount_fee
-    coupon_discount_rate = 0.1
-    @use_coupon_discount ? (@single_trip_price * coupon_discount_rate).to_i : 0
+    return 0 unless @use_coupon_discount
+    (@single_trip_price * 0.1).to_i
   end
 
   # 往復代を算出するメソッド

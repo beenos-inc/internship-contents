@@ -27,16 +27,19 @@ class HotelPlan
 
   # 喫煙可能部屋を利用時のコストを取得するメソッド
   def smoking_room_fee
+    return 0 unless @is_smoking_room
     1000
   end
 
   # 朝食利用時のコストを取得するメソッド
   def breakfast_fee
+    return 0 unless @has_breakfast
     500
   end
 
   # 夕食利用時のコストを取得するメソッド
   def dinner_fee
+    return 0 unless @has_dinner
     800
   end
 
@@ -44,9 +47,9 @@ class HotelPlan
   def hotel_price
     total_option_fee = 0
     total_option_fee += hotel_room_rank_fee
-    total_option_fee += smoking_room_fee if @is_smoking_room
-    total_option_fee += breakfast_fee if @has_breakfast
-    total_option_fee += dinner_fee if @has_dinner
+    total_option_fee += smoking_room_fee
+    total_option_fee += breakfast_fee
+    total_option_fee += dinner_fee
 
     @day_default_price + total_option_fee
   end

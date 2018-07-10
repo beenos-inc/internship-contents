@@ -13,8 +13,8 @@ class AirplanePlan
 
   # 早期予約割引料金を算出するメソッド
   def early_reservation_discount_fee
-    early_reservation_discount_rate = 0.3
-    @use_early_reservation ? (@single_trip_price * early_reservation_discount_rate).to_i : 0
+    return 0 unless @use_early_reservation
+    (@single_trip_price * 0.3).to_i
   end
 
   # 往復代を算出するメソッド
