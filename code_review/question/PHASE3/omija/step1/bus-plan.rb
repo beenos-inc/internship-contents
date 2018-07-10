@@ -1,10 +1,6 @@
 # バス料金を算出するクラス
 class BusPlan
-  def initialize(
-    single_trip_price,
-    student_discount_rate,
-    use_coupon_discount
-  )
+  def initialize(single_trip_price, student_discount_rate, use_coupon_discount)
     @single_trip_price = single_trip_price
     @student_discount_rate = student_discount_rate
     @use_coupon_discount = use_coupon_discount

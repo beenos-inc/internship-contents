@@ -1,10 +1,6 @@
 # 飛行機料金を算出するクラス
 class AirplanePlan
-  def initialize(
-    single_trip_price,
-    student_discount_rate,
-    use_early_reservation
-  )
+  def initialize(single_trip_price, student_discount_rate, use_early_reservation)
     @single_trip_price = single_trip_price
     @student_discount_rate = student_discount_rate
     @use_early_reservation = use_early_reservation
