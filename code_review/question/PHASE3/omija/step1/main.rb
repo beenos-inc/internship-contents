@@ -5,13 +5,13 @@ require "./bus-plan.rb"
 require "./travel-price.rb"
 
 # 電車代算出インスタンス作成
-train_plan = TrainPlan.new(12_500, 0.2, true)
+train_plan = TrainPlan.new(12_500, 0.2, false)
 
 # 飛行機代算出インスタンス作成
-airplane_plan = AirplanePlan.new(12_500, 0.2, true)
+airplane_plan = AirplanePlan.new(12_500, 0.2, false)
 
 # バス代算出インスタンス作成
-bus_plan = BusPlan.new(12_500, 0.2, true)
+bus_plan = BusPlan.new(12_500, 0.2, false)
 
 # ホテル代算出インスタンス作成
 hotel_plan = HotelPlan.new(5000, :gold, true, true, true)

@@ -13,7 +13,7 @@ class TrainPlan
 
   # グリーン車料金を算出するメソッド
   def green_car_fee
-    5000 if @is_green_car
+    @is_green_car ? 5000 : 0
   end
 
   # 往復代を算出するメソッド
