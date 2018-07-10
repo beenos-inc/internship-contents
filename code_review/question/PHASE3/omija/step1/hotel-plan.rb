@@ -12,9 +12,9 @@ class HotelPlan
   def hotel_room_rank_fee
     price_list = {
       normal: 0,
-      bronze: 3000,
-      silver: 5000,
-      gold: 8000
+      bronze: 3_000,
+      silver: 5_000,
+      gold: 8_000
     }
 
     unless price_list.include?(@hotel_room_rank)
@@ -27,20 +27,17 @@ class HotelPlan
 
   # 喫煙可能部屋を利用時のコストを取得するメソッド
   def smoking_room_fee
-    return 0 unless @is_smoking_room
-    1000
+    @is_smoking_room ? 1_000 : 0
   end
 
   # 朝食利用時のコストを取得するメソッド
   def breakfast_fee
-    return 0 unless @has_breakfast
-    500
+    @has_breakfast ? 500 : 0
   end
 
   # 夕食利用時のコストを取得するメソッド
   def dinner_fee
-    return 0 unless @has_dinner
-    800
+    @has_dinner ? 800 : 0
   end
 
   # ホテル料金合計を算出するメソッド
