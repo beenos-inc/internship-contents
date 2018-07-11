@@ -8,17 +8,17 @@ class BusPlan
 
   # 学割率が正しい値かどうか確認し、正しい値であれば学割率渡すメソッド
   def validate_student_discount_rate
-    if @student_discount_rate <= 100 && @student_discount_rate.is_a?(Integer)
-      @student_discount_rate
-    else
-      puts "学割の値は整数で0より大きく100未満の値を入れてください"
-      exit(0)
-    end
+    @student_discount_rate >= 0 && @student_discount_rate < 100 && @student_discount_rate.is_a?(Integer)
   end
 
   # 学割料金を算出するメソッド
   def student_discount_fee
-    (@single_trip_price * validate_student_discount_rate) / 100
+    unless validate_student_discount_rate
+      puts "学割の値は整数で0より大きく100未満の値を入れてください"
+      exit(0)
+    end
+
+    (@single_trip_price * @student_discount_rate) / 100
   end
 
   # クーポン割引料金を算出するメソッド
