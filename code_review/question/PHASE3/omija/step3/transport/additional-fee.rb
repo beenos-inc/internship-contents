@@ -6,8 +6,6 @@ class AdditionalFee
 
   # 追加料金を算出するメソッド
   def additional_fee
-    additional_list = { グリーン車: 5_000 }
-
-    Array(@selected_additional).sum { |add_option| additional_list[add_option] }
+    Array(@selected_additional).sum
   end
 end

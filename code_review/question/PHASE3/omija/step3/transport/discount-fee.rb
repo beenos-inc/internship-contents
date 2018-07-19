@@ -1,9 +1,8 @@
 # 割引料金を算出するクラス
 class DiscountFee
-  def initialize(default_price, selected_discount, student_discount_rate)
+  def initialize(default_price, array_discount_rate)
     @default_price = default_price
-    @selected_discount = selected_discount
-    @student_discount_rate = student_discount_rate
+    @array_discount_rate = array_discount_rate
   end
 
   # 割引率が1~99の整数かどうか確認するメソッド
@@ -21,11 +20,10 @@ class DiscountFee
 
   # 割引料金を算出するメソッド
   def discount_fee
-    discount_list = { 学割: @student_discount_rate, クーポン: 10, 早期予約: 30 }
+    Array(@array_discount_rate).sum do |discount_rate|
+      false_validate_discount_rate? unless validate_discount_rate(discount_rate)
 
-    Array(@selected_discount).sum do |discount_rate|
-      false_validate_discount_rate? unless validate_discount_rate(discount_list[discount_rate])
-      (@default_price * discount_list[discount_rate]) / 100
+      (@default_price * discount_rate) / 100
     end
   end
 end
