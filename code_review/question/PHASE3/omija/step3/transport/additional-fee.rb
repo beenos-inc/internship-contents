@@ -1,11 +1,11 @@
 # 追加料金を算出するクラス
-class AdditionalFee
-  def initialize(selected_additional)
-    @selected_additional = selected_additional
+class AdditionalFeeCollection
+  def initialize(array_additional_fee)
+    @array_additional_fee = array_additional_fee
   end
 
   # 追加料金を算出するメソッド
   def additional_fee
-    Array(@selected_additional).sum
+    Array(@array_additional_fee).sum
   end
 end

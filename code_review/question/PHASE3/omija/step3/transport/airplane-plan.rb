@@ -2,7 +2,7 @@ require_relative "transport-plan.rb"
 
 # 飛行機料金を算出するクラス
 class AirplanePlan < TransportPlan
-  def initialize(single_trip_price, use_student_discount, use_early_reservation, student_discount_rate)
+  def initialize(single_trip_price:, use_student_discount:, use_early_reservation:, student_discount_rate:)
     @single_trip_price = single_trip_price
     @use_early_reservation = use_early_reservation
     @use_student_discount = use_student_discount

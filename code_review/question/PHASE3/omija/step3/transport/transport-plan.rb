@@ -11,12 +11,12 @@ class TransportPlan
 
   # 割引料金の取得を行うメソッド
   def discount_fee
-    DiscountFee.new(@single_trip_price, @array_discount_rate).discount_fee
+    DiscountFeeCollection.new(@single_trip_price, @array_discount_rate).discount_fee
   end
 
   # 追加料金の取得を行うメソッド
   def additional_fee
-    AdditionalFee.new(@array_additional_option).additional_fee
+    AdditionalFeeCollection.new(@array_additional_option).additional_fee
   end
 
   # 往復代を算出するメソッド

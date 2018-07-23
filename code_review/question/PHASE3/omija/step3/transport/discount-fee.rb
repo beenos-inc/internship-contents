@@ -1,5 +1,5 @@
 # 割引料金を算出するクラス
-class DiscountFee
+class DiscountFeeCollection
   def initialize(default_price, array_discount_rate)
     @default_price = default_price
     @array_discount_rate = array_discount_rate

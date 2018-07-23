@@ -2,7 +2,7 @@ require_relative "transport-plan.rb"
 
 # バス料金を算出するクラス
 class BusPlan < TransportPlan
-  def initialize(single_trip_price, use_student_discount, use_coupon_discount, student_discount_rate)
+  def initialize(single_trip_price:, use_student_discount:, use_coupon_discount:, student_discount_rate:)
     @single_trip_price = single_trip_price
     @use_coupon_discount = use_coupon_discount
     @use_student_discount = use_student_discount
